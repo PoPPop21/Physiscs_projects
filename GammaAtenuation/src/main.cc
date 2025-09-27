@@ -53,7 +53,7 @@ int main(int argc,char** argv) {
   // Obtener el gestor de interfaz de usuario
   G4UImanager* UImanager = G4UImanager::GetUIpointer();  
 
-  if (ui {
+  if (ui) {
     UImanager->ApplyCommand("/control/execute vis.mac");
     ui->SessionStart();
     delete ui;
