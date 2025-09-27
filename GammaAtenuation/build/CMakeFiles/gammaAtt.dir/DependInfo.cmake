@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/DetectorConstruction.cc" "CMakeFiles/gammaAtt.dir/src/DetectorConstruction.cc.o" "gcc" "CMakeFiles/gammaAtt.dir/src/DetectorConstruction.cc.o.d"
   "/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/main.cc" "CMakeFiles/gammaAtt.dir/src/main.cc.o" "gcc" "CMakeFiles/gammaAtt.dir/src/main.cc.o.d"
   )
 

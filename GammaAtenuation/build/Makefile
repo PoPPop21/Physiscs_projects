@@ -129,6 +129,30 @@ gammaAtt/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gammaAtt.dir/build.make CMakeFiles/gammaAtt.dir/build
 .PHONY : gammaAtt/fast
 
+src/DetectorConstruction.o: src/DetectorConstruction.cc.o
+.PHONY : src/DetectorConstruction.o
+
+# target to build an object file
+src/DetectorConstruction.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gammaAtt.dir/build.make CMakeFiles/gammaAtt.dir/src/DetectorConstruction.cc.o
+.PHONY : src/DetectorConstruction.cc.o
+
+src/DetectorConstruction.i: src/DetectorConstruction.cc.i
+.PHONY : src/DetectorConstruction.i
+
+# target to preprocess a source file
+src/DetectorConstruction.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gammaAtt.dir/build.make CMakeFiles/gammaAtt.dir/src/DetectorConstruction.cc.i
+.PHONY : src/DetectorConstruction.cc.i
+
+src/DetectorConstruction.s: src/DetectorConstruction.cc.s
+.PHONY : src/DetectorConstruction.s
+
+# target to generate assembly for a file
+src/DetectorConstruction.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gammaAtt.dir/build.make CMakeFiles/gammaAtt.dir/src/DetectorConstruction.cc.s
+.PHONY : src/DetectorConstruction.cc.s
+
 src/main.o: src/main.cc.o
 .PHONY : src/main.o
 
@@ -162,6 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... gammaAtt"
+	@echo "... src/DetectorConstruction.o"
+	@echo "... src/DetectorConstruction.i"
+	@echo "... src/DetectorConstruction.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

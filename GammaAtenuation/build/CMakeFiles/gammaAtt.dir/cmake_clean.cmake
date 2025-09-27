@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/gammaAtt.dir/src/DetectorConstruction.cc.o"
+  "CMakeFiles/gammaAtt.dir/src/DetectorConstruction.cc.o.d"
   "CMakeFiles/gammaAtt.dir/src/main.cc.o"
   "CMakeFiles/gammaAtt.dir/src/main.cc.o.d"
   "gammaAtt"
