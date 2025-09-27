@@ -397,7 +397,13 @@ CMakeFiles/gammaAtt.dir/src/DetectorConstruction.cc.o: ../src/DetectorConstructi
   /home/sofi/GEANT4/geant4-install/include/Geant4/G4NistMaterialBuilder.hh \
   /home/sofi/GEANT4/geant4-install/include/Geant4/G4Pow.hh \
   /home/sofi/GEANT4/geant4-install/include/Geant4/G4Exp.hh \
-  /home/sofi/GEANT4/geant4-install/include/Geant4/G4SystemOfUnits.hh
+  /home/sofi/GEANT4/geant4-install/include/Geant4/G4SystemOfUnits.hh \
+  /home/sofi/GEANT4/geant4-install/include/Geant4/G4VisAttributes.hh \
+  /home/sofi/GEANT4/geant4-install/include/Geant4/graphics_reps_defs.hh \
+  /home/sofi/GEANT4/geant4-install/include/Geant4/G4Colour.hh \
+  /home/sofi/GEANT4/geant4-install/include/Geant4/G4Color.hh \
+  /home/sofi/GEANT4/geant4-install/include/Geant4/G4VisAttributes.icc \
+  /home/sofi/GEANT4/geant4-install/include/Geant4/G4Colour.hh
 
 CMakeFiles/gammaAtt.dir/src/EventAction.cc.o: ../src/EventAction.cc \
   /usr/include/stdc-predef.h \
@@ -2889,12 +2895,6 @@ CMakeFiles/gammaAtt.dir/src/main.cc.o: ../src/main.cc \
 
 /home/sofi/GEANT4/geant4-install/include/Geant4/G4NullModel.hh:
 
-/home/sofi/GEANT4/geant4-install/include/Geant4/G4VisAttributes.icc:
-
-/home/sofi/GEANT4/geant4-install/include/Geant4/G4Color.hh:
-
-/home/sofi/GEANT4/geant4-install/include/Geant4/G4VisAttributes.hh:
-
 /home/sofi/GEANT4/geant4-install/include/Geant4/G4ModelingParameters.hh:
 
 /home/sofi/GEANT4/geant4-install/include/Geant4/G4VisManager.hh:
@@ -3077,6 +3077,10 @@ CMakeFiles/gammaAtt.dir/src/main.cc.o: ../src/main.cc \
 
 /usr/include/c++/11/bits/uniform_int_dist.h:
 
+/home/sofi/GEANT4/geant4-install/include/Geant4/G4ProcessType.hh:
+
+/usr/include/c++/11/pstl/glue_algorithm_defs.h:
+
 /usr/include/c++/11/utility:
 
 /usr/include/c++/11/bits/stl_vector.h:
@@ -3104,10 +3108,6 @@ CMakeFiles/gammaAtt.dir/src/main.cc.o: ../src/main.cc \
 /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Geometry/Point3D.h:
 
 /usr/include/x86_64-linux-gnu/bits/errno.h:
-
-/home/sofi/GEANT4/geant4-install/include/Geant4/graphics_reps_defs.hh:
-
-/usr/include/c++/11/cerrno:
 
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
 
@@ -3247,6 +3247,10 @@ CMakeFiles/gammaAtt.dir/src/main.cc.o: ../src/main.cc \
 
 /usr/include/c++/11/tr1/gamma.tcc:
 
+/home/sofi/GEANT4/geant4-install/include/Geant4/G4EmStandardPhysics.hh:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
 /home/sofi/GEANT4/geant4-install/include/Geant4/G4TouchableHandle.hh:
 
 /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Random/RandBit.icc:
@@ -3351,6 +3355,12 @@ CMakeFiles/gammaAtt.dir/src/main.cc.o: ../src/main.cc \
 
 /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/TwoVector.h:
 
+/home/sofi/GEANT4/geant4-install/include/Geant4/G4DecayProcessType.hh:
+
+/home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/RotationInterfaces.icc:
+
+/usr/include/c++/11/bits/concept_check.h:
+
 /home/sofi/GEANT4/geant4-install/include/Geant4/templates.hh:
 
 /home/sofi/GEANT4/geant4-install/include/Geant4/G4ParticleDefinition.hh:
@@ -3451,6 +3461,8 @@ CMakeFiles/gammaAtt.dir/src/main.cc.o: ../src/main.cc \
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
+/home/sofi/GEANT4/geant4-install/include/Geant4/G4Color.hh:
+
 /usr/include/pthread.h:
 
 /home/sofi/GEANT4/geant4-install/include/Geant4/G4HepRepFile.hh:
@@ -3540,10 +3552,6 @@ CMakeFiles/gammaAtt.dir/src/main.cc.o: ../src/main.cc \
 /usr/include/c++/11/backward/binders.h:
 
 /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/RotationY.h:
-
-/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
-
-/home/sofi/GEANT4/geant4-install/include/Geant4/G4EmStandardPhysics.hh:
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
 
@@ -3672,6 +3680,8 @@ CMakeFiles/gammaAtt.dir/src/main.cc.o: ../src/main.cc \
 /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Random/RandomEngine.h:
 
 /usr/include/c++/11/cwchar:
+
+/home/sofi/GEANT4/geant4-install/include/Geant4/G4VisAttributes.hh:
 
 /usr/include/x86_64-linux-gnu/bits/local_lim.h:
 
@@ -3937,12 +3947,6 @@ CMakeFiles/gammaAtt.dir/src/main.cc.o: ../src/main.cc \
 
 /home/sofi/GEANT4/geant4-install/include/Geant4/G4ParticleTable.icc:
 
-/home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/RotationInterfaces.icc:
-
-/usr/include/c++/11/bits/concept_check.h:
-
-/home/sofi/GEANT4/geant4-install/include/Geant4/G4DecayProcessType.hh:
-
 /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/ThreeVector.icc:
 
 /usr/include/c++/11/bits/atomic_lockfree_defines.h:
@@ -4047,6 +4051,12 @@ CMakeFiles/gammaAtt.dir/src/main.cc.o: ../src/main.cc \
 
 /home/sofi/GEANT4/geant4-install/include/Geant4/G4NistElementBuilder.hh:
 
+/usr/include/c++/11/cerrno:
+
+/home/sofi/GEANT4/geant4-install/include/Geant4/graphics_reps_defs.hh:
+
+/home/sofi/GEANT4/geant4-install/include/Geant4/G4VisAttributes.icc:
+
 /home/sofi/GEANT4/geant4-install/include/Geant4/G4UserEventAction.hh:
 
 /home/sofi/GEANT4/geant4-install/include/Geant4/G4PseudoScene.hh:
@@ -4107,10 +4117,6 @@ CMakeFiles/gammaAtt.dir/src/main.cc.o: ../src/main.cc \
 
 /home/sofi/GEANT4/geant4-install/include/Geant4/G4VProcess.hh:
 
-/usr/include/c++/11/pstl/glue_algorithm_defs.h:
-
-/home/sofi/GEANT4/geant4-install/include/Geant4/G4ProcessType.hh:
-
 /home/sofi/GEANT4/geant4-install/include/Geant4/Randomize.hh:
 
 /usr/include/c++/11/bits/nested_exception.h:
@@ -4168,6 +4174,10 @@ CMakeFiles/gammaAtt.dir/src/main.cc.o: ../src/main.cc \
 /home/sofi/GEANT4/geant4-install/include/Geant4/G4NavigationLevelRep.hh:
 
 /home/sofi/GEANT4/geant4-install/include/Geant4/G4ParticleChange.hh:
+
+/home/sofi/GEANT4/geant4-install/include/Geant4/G4ParticleChangeForDecay.hh:
+
+/home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Random/RandChiSquare.icc:
 
 /home/sofi/GEANT4/geant4-install/include/Geant4/G4Trd.hh:
 
@@ -4232,7 +4242,3 @@ CMakeFiles/gammaAtt.dir/src/main.cc.o: ../src/main.cc \
 /home/sofi/GEANT4/geant4-install/include/Geant4/G4Track.icc:
 
 /home/sofi/GEANT4/geant4-install/include/Geant4/G4ForceCondition.hh:
-
-/home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Random/RandChiSquare.icc:
-
-/home/sofi/GEANT4/geant4-install/include/Geant4/G4ParticleChangeForDecay.hh:

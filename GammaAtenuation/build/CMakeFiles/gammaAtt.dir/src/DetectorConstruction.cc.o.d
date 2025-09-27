@@ -341,4 +341,10 @@ CMakeFiles/gammaAtt.dir/src/DetectorConstruction.cc.o: \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4NistMaterialBuilder.hh \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4Pow.hh \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4Exp.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4SystemOfUnits.hh
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4SystemOfUnits.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4VisAttributes.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/graphics_reps_defs.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4Colour.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4Color.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4VisAttributes.icc \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4Colour.hh
