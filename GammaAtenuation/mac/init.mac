@@ -14,8 +14,17 @@
 /vis/drawVolume
 /vis/scene/add/axes 0 0 0 10 cm
 /vis/viewer/zoom 2.0
+
+# Mostrar trayectoria
+/vis/scene/add/trajectories
+/vis/modeling/trajectories/create/drawByCharge
+/vis/scene/add/hits
+/vis/scene/endOfEventAction accumulate
+/tracking/verbose 1
+
+# Inicializo y disparo fotones
 /run/initialize
-/run/beamOn 10
+/run/beamOn 100
 
 
 

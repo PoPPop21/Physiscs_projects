@@ -11,7 +11,7 @@ PrimaryGeneratorAction::PrimaryGeneratorAction() {
     // DEfinir partícula
     G4ParticleDefinition* particle = G4Gamma::Gamma();
     particleGun->SetParticleDefinition(particle);
-    particleGun->SetParticleEnergy(1. * MeV);
+    particleGun->SetParticleEnergy(662 * MeV);
     particleGun->SetParticleMomentumDirection(G4ThreeVector(0., 0., 1.)); // Dirección en z
     particleGun->SetParticlePosition(G4ThreeVector(0., 0., -50. * cm)); // Posición inicial
 }
