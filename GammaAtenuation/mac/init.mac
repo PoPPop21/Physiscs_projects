@@ -1,0 +1,22 @@
+# init.mac -- configuración inicial 
+
+# Mensajes
+/control/verbose 2 # imprime info básica
+/run/verbose 2 # dice que run se ejecuta
+/event/verbose 0 #no imprime cada evento para que no sea muy largo
+/tracking/verbose 0
+
+# Visualización 
+/vis/open OGL 600x600-0+0 # abre opengl
+/vis/viewer/set/style wireframe 
+/vis/viewer/set/auxiliaryEdge true
+/vis/viewer/set/viewpointThetaPhi 90 0
+/vis/drawVolume
+/vis/scene/add/axes 0 0 0 10 cm
+/vis/scene/endOfEventAction accumulate
+
+# Inicializar la geometría física
+/run/initialize  # carga geometria + física
+
+#Generar 10 eventos de prueba 
+/run/beamOn 10 # lanza 10 fotones gamma
