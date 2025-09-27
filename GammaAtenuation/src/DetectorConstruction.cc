@@ -16,14 +16,14 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
     
     // --- 1. Mundo ---
     G4double world_size = 1.0*m;
-    G4Material * world_mat = nist->FindOrBuildMaterial("G4_AIR");
+    G4Material * world_mat = nist->FindOrBuildMaterial("G4_AIR"); // Aquí se modifica el material del mundo
     auto solidWorld = new G4Box("World", world_size, world_size, world_size);
     auto logicWorld = new G4LogicalVolume(solidWorld, world_mat, "World");
     auto physWorld = new G4PVPlacement(0, {}, logicWorld, "World", 0, false, 0);
     logicWorld->SetVisAttributes(G4VisAttributes::GetInvisible()); // Invisible
 
     // --- 2. Materiales absorbentes --- 
-    G4Material* absorber_mat = nist->FindOrBuildMaterial("G4_WATER");
+    G4Material* absorber_mat = nist->FindOrBuildMaterial("G4_WATER"); // Material absorbente 
     G4double absorber_thickness = 5*cm;
     auto solidAbs = new G4Box("Absorber", 10*cm, 10*cm, absorber_thickness/2.0);
     auto logicAbs = new G4LogicalVolume(solidAbs, absorber_mat, "Absorber");
@@ -33,7 +33,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
     logicAbs->SetVisAttributes(visAbs);
  
     // --- 3. Detector ---
-    G4Material* detector_mat = nist->FindOrBuildMaterial("G4_AIR");
+    G4Material* detector_mat = nist->FindOrBuildMaterial("G4_AIR"); // Material del detector
     auto solidDet = new G4Box("Detector", 10*cm, 10*cm, 1*mm);
     auto logicDet = new G4LogicalVolume(solidDet, detector_mat, "Detector");
     new G4PVPlacement(0, G4ThreeVector(0,0, absorber_thickness/2.0 + 2*cm), 
