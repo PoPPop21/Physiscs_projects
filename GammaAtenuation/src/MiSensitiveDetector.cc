@@ -3,6 +3,7 @@
 #include "G4HCofThisEvent.hh"
 #include "G4VHit.hh"
 #include "G4SDManager.hh"
+#include "MiHit.hh"
 
 MiSensitiveDetector::MiSensitiveDetector(const G4String& name)
     : G4VSensitiveDetector(name) {}
