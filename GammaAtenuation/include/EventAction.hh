@@ -4,6 +4,7 @@
 #include "G4UserEventAction.hh"
 #include "RunAction.hh"
 #include "globals.hh"
+#include <fstream>
 
 class EventAction : public G4UserEventAction {
 public:
@@ -15,6 +16,7 @@ public:
 
 private:
   RunAction* runAction;
+  std::ofstream outputFile;
 };
 
 #endif // EVENTACTION_HH

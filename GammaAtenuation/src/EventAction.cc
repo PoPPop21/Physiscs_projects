@@ -2,6 +2,9 @@
 #include "G4Event.hh"
 #include <iostream>
 #include <fstream>
+#include "G4SDManager.hh"
+#include "MiSensitiveDetector.hh"
+
 
 EventAction::EventAction(RunAction* runAct)
 : G4UserEventAction(), runAction(runAct) {
@@ -17,13 +20,12 @@ EventAction::~EventAction() {
 }
 
 void EventAction::BeginOfEventAction(const G4Event* event) {
-  // 1 si llega al detector, 0 si no  
   G4int eventID = event->GetEventID();
   G4int detected = 0;
   G4HCofThisEvent* HCE = event->GetHCofThisEvent();
   if (HCE) {
       G4int hcID = G4SDManager::GetSDMpointer()->GetCollectionID("DetectorHitsCollection");
-      auto hitsCollection = static_cast<YourHitsCollectionType*>(HCE->GetHC(hcID));
+      auto hitsCollection = HCE->GetHC(hcID); // Usar tipo base
       if (hitsCollection && hitsCollection->GetSize() > 0) {
           detected = 1;
       }
