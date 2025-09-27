@@ -1,0 +1,3 @@
+/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/build/CMakeFiles/gammaAtt.dir
+/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/build/CMakeFiles/edit_cache.dir
+/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/build/CMakeFiles/rebuild_cache.dir
