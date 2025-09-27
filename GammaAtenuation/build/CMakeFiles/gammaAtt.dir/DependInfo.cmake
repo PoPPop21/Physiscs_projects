@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/DetectorConstruction.cc" "CMakeFiles/gammaAtt.dir/src/DetectorConstruction.cc.o" "gcc" "CMakeFiles/gammaAtt.dir/src/DetectorConstruction.cc.o.d"
   "/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/EventAction.cc" "CMakeFiles/gammaAtt.dir/src/EventAction.cc.o" "gcc" "CMakeFiles/gammaAtt.dir/src/EventAction.cc.o.d"
+  "/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/MiSensitiveDetector.cc" "CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.o" "gcc" "CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.o.d"
   "/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/PhysicsList.cc" "CMakeFiles/gammaAtt.dir/src/PhysicsList.cc.o" "gcc" "CMakeFiles/gammaAtt.dir/src/PhysicsList.cc.o.d"
   "/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/PrimaryGeneratorAction.cc" "CMakeFiles/gammaAtt.dir/src/PrimaryGeneratorAction.cc.o" "gcc" "CMakeFiles/gammaAtt.dir/src/PrimaryGeneratorAction.cc.o.d"
   "/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/RunAction.cc" "CMakeFiles/gammaAtt.dir/src/RunAction.cc.o" "gcc" "CMakeFiles/gammaAtt.dir/src/RunAction.cc.o.d"

@@ -347,4 +347,62 @@ CMakeFiles/gammaAtt.dir/src/DetectorConstruction.cc.o: \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4Colour.hh \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4Color.hh \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4VisAttributes.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4Colour.hh
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4Colour.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4SDManager.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4HCtable.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4SDStructure.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4VSensitiveDetector.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4CollectionNameVector.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4HCofThisEvent.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4Allocator.hh \
+ /usr/include/c++/11/cstddef \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4AllocatorPool.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4VHitsCollection.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4Step.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4StepPoint.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4SteppingControl.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4StepStatus.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4TouchableHandle.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4VTouchable.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4TouchableHistory.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4NavigationHistory.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4AffineTransform.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4AffineTransform.icc \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4NavigationLevel.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4NavigationLevelRep.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4NavigationLevelRep.icc \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4NavigationLevel.icc \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4NavigationHistoryPool.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4NavigationHistory.icc \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4LogicalVolume.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4TouchableHistory.icc \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4ReferenceCountedHandle.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4StepPoint.icc \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4TrackVector.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4Step.icc \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4Track.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/trkdefs.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4DynamicParticle.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4ElectronOccupancy.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/pwdefs.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4LorentzVector.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4ParticleDefinition.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4PDefManager.hh \
+ /usr/include/c++/11/stdlib.h \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4ParticleDefinition.icc \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4ParticleMomentum.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4DynamicParticle.icc \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4TrackStatus.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4VUserTrackInformation.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4PhysicsModelCatalog.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4Track.icc \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4VHit.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4VReadOutGeometry.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4SensitiveVolumeList.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4VSDFilter.hh \
+ /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/include/MiSensitiveDetector.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4VSensitiveDetector.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4THitsCollection.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4Step.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4HCofThisEvent.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4VHit.hh

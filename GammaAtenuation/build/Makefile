@@ -177,6 +177,30 @@ src/EventAction.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gammaAtt.dir/build.make CMakeFiles/gammaAtt.dir/src/EventAction.cc.s
 .PHONY : src/EventAction.cc.s
 
+src/MiSensitiveDetector.o: src/MiSensitiveDetector.cc.o
+.PHONY : src/MiSensitiveDetector.o
+
+# target to build an object file
+src/MiSensitiveDetector.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gammaAtt.dir/build.make CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.o
+.PHONY : src/MiSensitiveDetector.cc.o
+
+src/MiSensitiveDetector.i: src/MiSensitiveDetector.cc.i
+.PHONY : src/MiSensitiveDetector.i
+
+# target to preprocess a source file
+src/MiSensitiveDetector.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gammaAtt.dir/build.make CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.i
+.PHONY : src/MiSensitiveDetector.cc.i
+
+src/MiSensitiveDetector.s: src/MiSensitiveDetector.cc.s
+.PHONY : src/MiSensitiveDetector.s
+
+# target to generate assembly for a file
+src/MiSensitiveDetector.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gammaAtt.dir/build.make CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.s
+.PHONY : src/MiSensitiveDetector.cc.s
+
 src/PhysicsList.o: src/PhysicsList.cc.o
 .PHONY : src/PhysicsList.o
 
@@ -288,6 +312,9 @@ help:
 	@echo "... src/EventAction.o"
 	@echo "... src/EventAction.i"
 	@echo "... src/EventAction.s"
+	@echo "... src/MiSensitiveDetector.o"
+	@echo "... src/MiSensitiveDetector.i"
+	@echo "... src/MiSensitiveDetector.s"
 	@echo "... src/PhysicsList.o"
 	@echo "... src/PhysicsList.i"
 	@echo "... src/PhysicsList.s"
