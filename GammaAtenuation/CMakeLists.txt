@@ -1,8 +1,22 @@
 cmake_minimum_required(VERSION 3.10)
 project(GammaAttenuation)
 
+# Generar compile_commands.json para VS Code
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # Encontrar Geant4
 find_package(Geant4 REQUIRED ui_all vis_all)
+
+# Encontrar ROOT (opcional)
+find_package(ROOT QUIET)
+if(ROOT_FOUND)
+    message(STATUS "ROOT encontrado en: ${ROOT_DIR}")
+    message(STATUS "ROOT version: ${ROOT_VERSION}")
+    include_directories(${ROOT_INCLUDE_DIRS})
+    add_definitions(-DUSE_ROOT)
+else()
+    message(STATUS "ROOT no encontrado - compilando sin análisis ROOT")
+endif()
 
 include(${Geant4_USE_FILE})
 
@@ -13,4 +27,11 @@ file(GLOB sources src/*.cc)
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 add_executable(gammaAtt ${sources})
+
+# Enlazar librerías
 target_link_libraries(gammaAtt ${Geant4_LIBRARIES})
+
+# Si ROOT está disponible, enlazarlo también
+if(ROOT_FOUND)
+    target_link_libraries(gammaAtt ${ROOT_LIBRARIES})
+endif()

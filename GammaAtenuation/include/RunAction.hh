@@ -12,20 +12,51 @@ Fecha: Octubre 2025
 #include "G4SystemOfUnits.hh"
 #include <cmath>
 
-class RunAction : public G4UserRunAction {
+#ifdef USE_ROOT
+class TFile;
+class TTree;
+class TH1F;
+
+// Forward declarations de tipos ROOT
+typedef int Int_t;
+typedef float Float_t;
+typedef char Char_t;
+#endif
+
+class RunAction : public G4UserRunAction
+{
 public:
-  RunAction(DetectorConstruction* detector);
+  RunAction(DetectorConstruction *detector);
   virtual ~RunAction();
 
-  virtual void BeginOfRunAction(const G4Run* run);
-  virtual void EndOfRunAction(const G4Run* run);
+  virtual void BeginOfRunAction(const G4Run *run);
+  virtual void EndOfRunAction(const G4Run *run);
 
   void AddTransmittedEvent();
 
 private:
-  DetectorConstruction* detector;
+  DetectorConstruction *detector;
   G4int totalEvents;
   G4int transmittedEvents;
+
+#ifdef USE_ROOT
+  // Variables ROOT
+  TFile *rootFile;
+  TTree *attenuationTree;
+  TH1F *attenuationHist;
+
+  // Estructura para datos del Tree
+  struct RunData
+  {
+    Int_t runID;
+    Char_t material[50];
+    Float_t thickness;
+    Int_t totalEvents;
+    Int_t transmittedEvents;
+    Float_t transmissionRatio;
+    Float_t attenuationCoeff;
+  } runData;
+#endif
 };
 
 #endif // RUNACTION_HH
