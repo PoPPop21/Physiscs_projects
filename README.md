@@ -1,4 +1,14 @@
-# Proyectos de Física Computacional
+# Proyectos de ### Estructura del Proyecto
+```
+GammaAtenuation/
+├── src/                    # Código fuente GEANT4
+├── include/               # Archivos de cabecera
+├── build/                 # Archivos compilados y ejecutables
+├── analysis/              # Scripts de análisis ROOT (*.C)
+├── mac/                   # Archivos de configuración de simulación (*.mac)
+├── results/               # Gráficas y resultados generados (*.png, *.pdf)
+└── scripts/               # Scripts auxiliares
+```tacional
 
 Este repositorio alberga proyectos de física computacional desarrollados para presentaciones en congresos y eventos científicos.
 
@@ -18,9 +28,12 @@ Simulación Monte Carlo desarrollada con GEANT4 para estudiar la atenuación de 
 GammaAtenuation/
 ├── src/                    # Código fuente GEANT4
 ├── include/               # Archivos de cabecera
-├── build/                 # Archivos compilados y scripts de análisis
-├── mac/                   # Archivos de macros de configuración
-└── scripts/              # Scripts auxiliares de análisis
+├── build/                 # Archivos compilados y ejecutables
+├── analysis/              # Scripts de análisis ROOT (*.C)
+├── macros/                # Archivos de configuración de simulación (*.mac)
+├── results/               # Gráficas y resultados generados (*.png, *.pdf)
+├── mac/                   # Archivos de macros base
+└── scripts/               # Scripts auxiliares
 ```
 
 ### Resultados Validados
@@ -71,22 +84,25 @@ make
 **1. Configuración Multi-Material Automatizada**
 ```bash
 # Generar archivos de configuración para los tres materiales
+cd GammaAtenuation/analysis
 root -l -b setup_multi.C
 
 # Ejecutar simulaciones (puede tomar varios minutos)
-./gammaAtt temp_water.mac
-./gammaAtt temp_muscle.mac  
-./gammaAtt temp_bone.mac
+cd ../build
+./gammaAtt ../mac/temp_water.mac
+./gammaAtt ../mac/temp_muscle.mac  
+./gammaAtt ../mac/temp_bone.mac
 ```
 
 **2. Análisis Comparativo Multi-Material**
 ```bash
 # Generar gráficas comparativas y DataFrame
+cd ../analysis
 root -l -b multi_analysis.C
 ```
 Genera:
-- coeficientes_atenuacion.png (comparación de coeficientes μ)
-- transmision_vs_densidad.png (relación densidad-transmisión)
+- results/coeficientes_atenuacion.png (comparación de coeficientes μ)
+- results/transmision_vs_densidad.png (relación densidad-transmisión)
 - Salida tipo DataFrame con estadísticas comparativas
 
 **3. Análisis Detallado de Agua**
@@ -95,7 +111,7 @@ Genera:
 root -l -b water_histogram.C
 ```
 Genera:
-- water_analysis.png (análisis completo con 4 paneles)
+- results/water_analysis.png (análisis completo con 4 paneles)
 - Validación experimental vs teórica Beer-Lambert
 - Estadísticas detalladas de transmisión
 

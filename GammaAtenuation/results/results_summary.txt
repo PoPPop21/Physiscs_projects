@@ -1,0 +1,536 @@
+
+=== RUN 0 ===
+Material: water
+Espesor: 5 cm
+Eventos: 50
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: inf cm^-1
+
+=== RUN 0 ===
+Material: water
+Espesor: 5 cm
+Eventos: 10
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 0 ===
+Material: water
+Espesor: 5 cm
+Eventos: 50
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 0 ===
+Material: water
+Espesor: 5 cm
+Eventos: 50
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 1 ===
+Material: bone
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 2 ===
+Material: bone
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 3 ===
+Material: water
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 4 ===
+Material: water
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 5 ===
+Material: lead
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 6 ===
+Material: concrete
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 7 ===
+Material: concrete
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 8 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 9 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 10 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 11 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 12 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 13 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 14 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 50
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 15 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 16 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 17 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 18 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 19 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 20 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 21 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 22 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 23 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 24 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 25 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 26 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 27 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 28 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 50
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 29 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 30 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 31 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 50
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 32 ===
+Material: water
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 33 ===
+Material: water
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 0 ===
+Material: water
+Espesor: 5 cm
+Eventos: 50
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 1 ===
+Material: water
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 2 ===
+Material: water
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 3 ===
+Material: water
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 4 ===
+Material: water
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 5 ===
+Material: water
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 6 ===
+Material: water
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 7 ===
+Material: water
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 8 ===
+Material: water
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 9 ===
+Material: water
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 10 ===
+Material: water
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 11 ===
+Material: water
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 12 ===
+Material: water
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 13 ===
+Material: bone
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 14 ===
+Material: concrete
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 15 ===
+Material: concrete
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 16 ===
+Material: concrete
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 17 ===
+Material: concrete
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 18 ===
+Material: lead
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 19 ===
+Material: lead
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 20 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 1
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 0 ===
+Material: water
+Espesor: 5 cm
+Eventos: 100
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 0 ===
+Material: water
+Espesor: 5 cm
+Eventos: 100
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 0 ===
+Material: water
+Espesor: 1 cm
+Eventos: 100
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 0 ===
+Material: water
+Espesor: 0.01 cm
+Eventos: 10
+Transmitidos: 0
+Transmisión: 0
+Coef. atenuación: 999 cm^-1
+
+=== RUN 0 ===
+Material: water
+Espesor: 0.01 cm
+Eventos: 10
+Transmitidos: 10
+Transmisión: 1
+Coef. atenuación: -0 cm^-1
+
+=== RUN 0 ===
+Material: water
+Espesor: 5 cm
+Eventos: 1000
+Transmitidos: 864
+Transmisión: 0.864
+Coef. atenuación: 0.0292365 cm^-1
+
+=== RUN 0 ===
+Material: water
+Espesor: 5 cm
+Eventos: 100000
+Transmitidos: 84415
+Transmisión: 0.84415
+Coef. atenuación: 0.033885 cm^-1
+
+=== RUN 0 ===
+Material: muscle
+Espesor: 5 cm
+Eventos: 100000
+Transmitidos: 83910
+Transmisión: 0.8391
+Coef. atenuación: 0.0350851 cm^-1
+
+=== RUN 0 ===
+Material: bone
+Espesor: 5 cm
+Eventos: 100000
+Transmitidos: 74444
+Transmisión: 0.74444
+Coef. atenuación: 0.0590246 cm^-1
