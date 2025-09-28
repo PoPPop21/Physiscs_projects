@@ -37,7 +37,9 @@ screenshot.png
 *.png
 *.jpg
 *.gif
-
+*.csv
+GammaAtenuation/results/results_summary.txt
+*.pdf
 # VS Code settings (optional - some prefer to keep)
 .vscode/
 .vs/
