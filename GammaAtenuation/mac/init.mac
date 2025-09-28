@@ -19,7 +19,7 @@
 /vis/scene/add/trajectories
 /vis/modeling/trajectories/create/drawByCharge
 /vis/scene/add/hits
-/vis/scene/endOfEventAction refresh
+/vis/scene/endOfEventAction accumulate
 /tracking/verbose 1
 
 # Inicializo y disparo fotones
