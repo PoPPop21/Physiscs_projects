@@ -1,123 +1,119 @@
-# Proyectos de ### Estructura del Proyecto
-```
-GammaAtenuation/
-├── src/                    # Código fuente GEANT4
-├── include/               # Archivos de cabecera
-├── build/                 # Archivos compilados y ejecutables
-├── analysis/              # Scripts de análisis ROOT (*.C)
-├── mac/                   # Archivos de configuración de simulación (*.mac)
-├── results/               # Gráficas y resultados generados (*.png, *.pdf)
-└── scripts/               # Scripts auxiliares
-```tacional
+# Gamma Attenuation Simulation
 
-Este repositorio alberga proyectos de física computacional desarrollados para presentaciones en congresos y eventos científicos.
+Simulación de atenuación de rayos gamma usando GEANT4 con análisis comparativo multi-material.
 
-## Proyecto: Simulación de Atenuación Gamma (GammaAtenuation)
+## 📋 Descripción del Proyecto
 
-### Descripción
-Simulación Monte Carlo desarrollada con GEANT4 para estudiar la atenuación de rayos gamma en diferentes materiales biológicos. El proyecto incluye análisis comparativo de coeficientes de atenuación y visualizaciones interactivas con ROOT.
+Este proyecto simula la atenuación de rayos gamma de 662 keV (Cs-137) en diferentes materiales biológicos usando GEANT4 v11.3.2 y ROOT v6.36.04.
 
-### Características Principales
-- Simulación Monte Carlo con GEANT4 v11.3.2
-- Análisis de atenuación para materiales biológicos (agua, músculo, hueso)
-- Integración con ROOT v6.36.04 para análisis de datos
-- Gráficas comparativas
+### Materiales Analizados:
+- **Agua** (tejido blando) - Densidad: 1.0 g/cm³
+- **Músculo** esquelético - Densidad: 1.05 g/cm³  
+- **Hueso** compacto - Densidad: 1.85 g/cm³
 
-### Estructura del Proyecto
-```
-GammaAtenuation/
-├── src/                    # Código fuente GEANT4
-├── include/               # Archivos de cabecera
-├── build/                 # Archivos compilados y ejecutables
-├── analysis/              # Scripts de análisis ROOT (*.C)
-├── macros/                # Archivos de configuración de simulación (*.mac)
-├── results/               # Gráficas y resultados generados (*.png, *.pdf)
-├── mac/                   # Archivos de macros base
-└── scripts/               # Scripts auxiliares
-```
+## 🚀 Instalación y Compilación
 
-### Resultados Validados
-- Agua (tejido blando): 84.4% transmisión, μ = 0.0339 cm⁻¹
-- Músculo esquelético: 83.9% transmisión, μ = 0.0351 cm⁻¹
-- Hueso compacto: 74.4% transmisión, μ = 0.0590 cm⁻¹
+### Requisitos:
+- GEANT4 v11.3.2+
+- ROOT v6.36.04+
+- CMake 3.16+
+- C++ Compiler con soporte C++17
 
-### Tecnologías Utilizadas
-- GEANT4 11.3.2 (simulación Monte Carlo)
-- ROOT 6.36.04 (análisis de datos y visualización)
-- C++ (desarrollo principal)
-- CMake (sistema de construcción)
-- Git (control de versiones)
-
-### Estado del Desarrollo
-El proyecto cuenta con funcionalidad completa para simulaciones básicas y análisis comparativo. 
-
-**Funcionalidades Implementadas:**
-- Simulación de atenuación gamma para materiales predefinidos
-- Generación automática de configuraciones multi-material
-- Análisis estadístico con validación física
-- Visualizaciones comparativas exportables
-
-**Mejoras Pendientes:**
-- Optimización de persistencia de datos entre simulaciones
-- Refinamiento de parámetros de simulación para mayor precisión
-- Implementación de manejo de errores robusto
-- Extensión a materiales adicionales
-- Análisis de dependencia energética
-
-### Instalación y Uso
-
-#### Prerrequisitos
-- GEANT4 v11.3.2 o superior
-- ROOT v6.36.04 o superior
-- CMake 3.16 o superior
-- Compilador C++ compatible con C++17
-
-#### Compilación
+### Compilación:
 ```bash
-cd GammaAtenuation/build
+cd build/
 cmake ..
 make
 ```
 
-#### Generación de Gráficas y Análisis
+## 📊 **FLUJO DE TRABAJO COMPLETO**
 
-**1. Configuración Multi-Material Automatizada**
+### **1. PREPARACIÓN (solo una vez)**
 ```bash
-# Generar archivos de configuración para los tres materiales
-cd GammaAtenuation/analysis
-root -l -b setup_multi.C
-
-# Ejecutar simulaciones (puede tomar varios minutos)
-cd ../build
-./gammaAtt ../mac/temp_water.mac
-./gammaAtt ../mac/temp_muscle.mac  
-./gammaAtt ../mac/temp_bone.mac
+cd /home/isabel/Physiscs_projects/GammaAtenuation/build
+make
 ```
 
-**2. Análisis Comparativo Multi-Material**
+### **2. GENERAR CONFIGURACIONES**
 ```bash
-# Generar gráficas comparativas y DataFrame
-cd ../analysis
-root -l -b multi_analysis.C
+root -q "../analysis/setup_multi.C"
 ```
-Genera:
-- results/coeficientes_atenuacion.png (comparación de coeficientes μ)
-- results/transmision_vs_densidad.png (relación densidad-transmisión)
-- Salida tipo DataFrame con estadísticas comparativas
+- **Función**: Genera archivos `.mac` para los 3 materiales
+- **Output**: `temp_water.mac`, `temp_muscle.mac`, `temp_bone.mac`
 
-**3. Análisis Detallado de Agua**
+### **3. EJECUTAR SIMULACIONES**
 ```bash
-# Generar histogramas específicos para agua
-root -l -b water_histogram.C
+./gammaAtt ../mac/temp_water.mac      # Simula agua
+./gammaAtt ../mac/temp_muscle.mac     # Simula músculo  
+./gammaAtt ../mac/temp_bone.mac       # Simula hueso
 ```
-Genera:
-- results/water_analysis.png (análisis completo con 4 paneles)
-- Validación experimental vs teórica Beer-Lambert
-- Estadísticas detalladas de transmisión
+- **Eventos por simulación**: 100,000
+- **Espesor**: 5.0 cm
+- **Energía**: 662 keV (Cs-137)
 
-#### Archivos de Salida
-- **Datos ROOT**: data_run0.root (datos de simulación)
-- **Gráficas PNG**: Visualizaciones listas para presentaciones
-- **Logs**: Resultados estadísticos en consola
-- **Configuraciones**: temp_*.mac (archivos temporales de simulación)
+### **4. EJECUTAR ANÁLISIS (generan PNGs automáticamente)**
+```bash
+root -q "../analysis/water_histogram.C"      # → water_analysis.png
+root -q "../analysis/analyze_attenuation.C"  # → attenuation_analysis.png
+root -q "../analysis/multi_analysis.C"       # → 2 gráficas comparativas
+```
 
+## 📁 Estructura del Proyecto
+
+```
+GammaAtenuation/
+├── analysis/          # Scripts de análisis ROOT
+│   ├── setup_multi.C       # Generador de configuraciones
+│   ├── analyze_attenuation.C  # Análisis individual completo
+│   ├── multi_analysis.C      # Análisis comparativo 3 materiales
+│   ├── water_histogram.C     # Análisis detallado agua
+│   └── README.md            # Documentación de análisis
+├── build/             # Compilación y ejecutables
+├── include/           # Headers de GEANT4
+├── src/              # Código fuente GEANT4
+├── mac/              # Archivos de configuración GEANT4
+├── results/          # Resultados y gráficas
+└── README.md         # Este archivo
+```
+
+## 📈 Resultados Generados
+
+### **Archivos de Datos:**
+- `data_run0.root` - Archivo ROOT con tree de datos
+- `results_summary.txt` - Resumen estadístico
+- `attenuation_data.csv` - Datos tabulados
+- `event_data.csv` - Datos evento por evento
+
+### **Gráficas PNG:**
+- `water_analysis.png` - Análisis histográfico detallado del agua
+- `attenuation_analysis.png` - Análisis completo con 4 paneles
+- `coeficientes_atenuacion.png` - Comparación de coeficientes μ
+- `transmision_vs_densidad.png` - Correlación transmisión-densidad
+
+## 🔬 Resultados Físicos Típicos
+
+| Material | Densidad (g/cm³) | Transmisión (%) | μ (cm⁻¹) |
+|----------|------------------|-----------------|-----------|
+| Agua     | 1.0             | 84.4%           | 0.0339   |
+| Músculo  | 1.05            | 83.9%           | 0.0351   |
+| Hueso    | 1.85            | 74.4%           | 0.0590   |
+
+### **Validación Física:**
+✅ Coeficientes en rangos realistas para 662 keV  
+✅ Seguimiento de ley Beer-Lambert: I = I₀e^(-μx)  
+✅ Correlación correcta densidad-atenuación  
+✅ Estadística robusta con 100,000 eventos  
+
+## 📖 Documentación Adicional
+
+- Ver `analysis/README.md` para detalles de cada script
+- Los archivos `.mac` definen configuraciones de GEANT4
+- Todos los outputs se guardan automáticamente en `results/`
+
+## 🛠️ Desarrollo
+
+**Rama actual**: `isabel-root-integration`  
+**Autor**: Isabel  
+**Última actualización**: Septiembre 2025  
+
+Para contribuir, mantener la estructura de directorios y ejecutar pruebas antes de commit.
