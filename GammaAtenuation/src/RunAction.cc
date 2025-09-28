@@ -23,8 +23,7 @@ RunAction::RunAction(DetectorConstruction *det)
 #ifdef USE_ROOT
   rootFile = nullptr;
   attenuationTree = nullptr;
-  attenuationHist = nullptr;
-  G4cout << "RunAction: ROOT support enabled" << G4endl;
+  G4cout << "RunAction: ROOT support enabled (datos únicamente)" << G4endl;
 #else
   G4cout << "RunAction: ROOT support not available" << G4endl;
 #endif
@@ -52,21 +51,21 @@ void RunAction::BeginOfRunAction(const G4Run *run)
   std::cout << "Eventos totales: " << totalEvents << std::endl;
 
 #ifdef USE_ROOT
-  // Crear archivo ROOT
-  TString rootFileName = TString::Format("gamma_attenuation_run%d.root", run->GetRunID());
+  // Crear archivo ROOT simple
+  TString rootFileName = TString::Format("data_run%d.root", run->GetRunID());
   rootFile = new TFile(rootFileName.Data(), "RECREATE");
 
-  // Crear Tree para datos de atenuación
-  attenuationTree = new TTree("attenuationData", "Gamma Attenuation Results");
+  // Crear Tree simple para datos
+  attenuationTree = new TTree("data", "Attenuation Data");
 
-  // Variables para el Tree
+  // Variables básicas
   runData.runID = run->GetRunID();
   strncpy(runData.material, detector->GetMaterial().c_str(), 49);
-  runData.material[49] = '\0'; // Asegurar terminación null
+  runData.material[49] = '\0';
   runData.thickness = detector->GetThickness() / CLHEP::cm;
   runData.totalEvents = totalEvents;
 
-  // Configurar branches
+  // Solo branches esenciales
   attenuationTree->Branch("runID", &runData.runID, "runID/I");
   attenuationTree->Branch("material", runData.material, "material/C");
   attenuationTree->Branch("thickness", &runData.thickness, "thickness/F");
@@ -75,10 +74,7 @@ void RunAction::BeginOfRunAction(const G4Run *run)
   attenuationTree->Branch("transmissionRatio", &runData.transmissionRatio, "transmissionRatio/F");
   attenuationTree->Branch("attenuationCoeff", &runData.attenuationCoeff, "attenuationCoeff/F");
 
-  // Crear histograma para coeficientes de atenuación
-  attenuationHist = new TH1F("attenuationCoeff", "Coeficiente de Atenuacion;Coeficiente (cm^{-1});Frecuencia", 100, 0, 10);
-
-  G4cout << "ROOT: Archivo " << rootFileName << " creado" << G4endl;
+  G4cout << "ROOT: Archivo " << rootFileName << " creado (solo datos)" << G4endl;
 #endif
 
   // Preparar archivo de resultados
@@ -101,7 +97,7 @@ void RunAction::EndOfRunAction(const G4Run *run)
   std::cout << "Coeficiente de atenuación: " << attenuationCoeff << " cm^-1" << std::endl;
 
 #ifdef USE_ROOT
-  // Llenar datos en ROOT
+  // Llenar datos básicos
   runData.transmittedEvents = transmittedEvents;
   runData.transmissionRatio = transmissionRatio;
   runData.attenuationCoeff = attenuationCoeff;
@@ -109,20 +105,13 @@ void RunAction::EndOfRunAction(const G4Run *run)
   // Llenar Tree
   attenuationTree->Fill();
 
-  // Llenar histograma (solo si el coeficiente es válido)
-  if (attenuationCoeff < 999.0)
-  {
-    attenuationHist->Fill(attenuationCoeff);
-  }
-
-  // Guardar y cerrar archivo ROOT
+  // Guardar archivo ROOT
   rootFile->cd();
   attenuationTree->Write();
-  attenuationHist->Write();
   rootFile->Close();
 
-  G4cout << "ROOT: Datos guardados en archivo ROOT" << G4endl;
-  G4cout << "ROOT: Para analizar: root gamma_attenuation_run" << run->GetRunID() << ".root" << G4endl;
+  G4cout << "ROOT: Datos guardados" << G4endl;
+  G4cout << "ROOT: Archivo: data_run" << run->GetRunID() << ".root" << G4endl;
 #endif
 
   // Guardar resultados finales
