@@ -4,6 +4,7 @@ Fecha: Octubre 2025
 -----------------------------------------------
 */
 #include "DetectorConstruction.hh"
+#include "DetectorMessenger.hh"
 #include "G4Box.hh"
 #include "G4LogicalVolume.hh"
 #include "G4PVPlacement.hh"
@@ -16,10 +17,59 @@ Fecha: Octubre 2025
 #include "MiSensitiveDetector.hh" 
 
 
+/* Defino los valores por defecto que tenrá mi detector cuando arranque la simualción*/
+DetectorConstruction::DetectorConstruction() 
+    : materialType("water"), thickness(5.0*cm){
+    messenger = new DetectorMessenger(this);
+    } // Material inicial es agua, con espesor de 5cm.
 
+DetectorConstruction::~DetectorConstruction() {
+    delete messenger;
+}
 
-DetectorConstruction::DetectorConstruction() : G4VUserDetectorConstruction() {}
-DetectorConstruction::~DetectorConstruction() {}
+/* Cambiamos el material dinámicamente */
+void DetectorConstruction::SetMaterialType(const G4String& material) { // Setmaterial -> deja elegir otro amterial desde la interfaz macros. 
+    materialType = material;
+    // Forzar reconstrucción si ya está construido
+    G4RunManager::GetRunManager()->ReinitializeGeometry();
+}
+
+/* Cambiar espesor dinámicamente */
+void DetectorConstruction::SetThickness(G4double thick) { // Puede cambiar de 5cm a 10cm desde la interfaz macros.
+    thickness = thick;
+    G4RunManager::GetRunManager()->ReinitializeGeometry();
+}
+
+/* Deefinición de materiales */
+G4Material* DetectorConstruction::DefineMaterials() {
+    G4NistManager* nist = G4NistManager::Instance();
+    G4Material* material = nullptr;
+
+    if (materialType == "water") {
+        material = nist->FindOrBuildMaterial("G4_WATER");
+    }
+    else if (materialType == "muscle") {
+        material = nist->FindOrBuildMaterial("G4_MUSCLE_ICRP");
+    }
+    else if (materialType == "bone") {
+        material = nist->FindOrBuildMaterial("G4_BONE_ICRP");
+    }
+    else if (materialType == "lead") {
+        material = nist->FindOrBuildMaterial("G4_Pb");
+    }
+    else if (materialType == "concrete") {
+        material = nist->FindOrBuildMaterial("G4_CONCRETE");
+    }
+    else {
+        G4cerr << "Material " << materialType << " no reconocido. Usando agua por defecto." << G4endl;
+        material = nist->FindOrBuildMaterial("G4_WATER");
+    }
+
+    return material;
+}
+
+/*DetectorConstruction::DetectorConstruction() : G4VUserDetectorConstruction() {}
+DetectorConstruction::~DetectorConstruction() {}*/
 
 /* Creación de la geometría del mundo y el detector */
 
@@ -36,26 +86,33 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
     logicWorld->SetVisAttributes(G4VisAttributes::GetInvisible()); // Invisible
 
     // --- 2. Materiales absorbentes --- 
-    G4Material* absorber_mat = nist->FindOrBuildMaterial("G4_WATER"); // Material absorbente 
-    G4double absorber_thickness = 5*cm;
+    G4Material* absorber_mat = DefineMaterials(); //nist->FindOrBuildMaterial("G4_WATER"); -> Material absorbente 
+    G4double absorber_thickness = thickness; // 5 cm -> espesor del material absorbente
     auto solidAbs = new G4Box("Absorber", 10*cm, 10*cm, absorber_thickness/2.0);
     auto logicAbs = new G4LogicalVolume(solidAbs, absorber_mat, "Absorber");
     new G4PVPlacement(0, G4ThreeVector(0,0,0), logicAbs, "Absorber", logicWorld, false, 0);
 
-    auto visAbs = new G4VisAttributes(G4Colour(0,0,1,0.4)); // Azul
+    // Colores segun material
+    G4VisAttributes* visAbs;
+    if (materialType == "water") visAbs = new G4VisAttributes(G4Colour(0,0,1,0.4)); // Azul
+    else if (materialType == "muscle") visAbs = new G4VisAttributes(G4Colour(1,0.8,0.6,0.4)); // Color carne
+    else if (materialType == "bone") visAbs = new G4VisAttributes(G4Colour(1,1,0.8,0.4)); // Color hueso
+    else if (materialType == "lead") visAbs = new G4VisAttributes(G4Colour(0.5,0.5,0.5,0.4)); // Gris
+    else if (materialType == "concrete") visAbs = new G4VisAttributes(G4Colour(0.6,0.6,0.6,0.4)); // Gris claro
+    else visAbs = new G4VisAttributes(G4Colour(0,0,1,0.4)); // Azul por defecto
     logicAbs->SetVisAttributes(visAbs);
  
     // --- 3. Detector ---
     G4Material* detector_mat = nist->FindOrBuildMaterial("G4_AIR"); // Material del detector
-    auto solidDet = new G4Box("Detector", 10*cm, 10*cm, 1*mm);
+    auto solidDet = new G4Box("Detector", 15*cm, 15*cm, 2*mm);
     auto logicDet = new G4LogicalVolume(solidDet, detector_mat, "Detector");
-    new G4PVPlacement(0, G4ThreeVector(0,0, absorber_thickness/2.0 + 2*cm), 
+    new G4PVPlacement(0, G4ThreeVector(0,0, absorber_thickness/2.0 + 5*cm), 
                       logicDet, "Detector", logicWorld, false, 0);
     auto visDet = new G4VisAttributes(G4Colour(1,0,0,0.6)); // Rojo
     logicDet->SetVisAttributes(visDet);
 
     // --- 4. Detector lógico: sensitivedetector. ---
-    auto sd = new MiSensitiveDetector("MyDetectorSD");
+    auto sd = new MiSensitiveDetector("MyDetectorSD"); // Tengo la duda de si es Detectorhitscollection o MyDetectorSD
     G4SDManager::GetSDMpointer()->AddNewDetector(sd);
     logicDet->SetSensitiveDetector(sd);
 

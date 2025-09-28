@@ -1,10 +1,14 @@
 # init.mac -- configuración inicial 
 
 # Mensajes
-/control/verbose 2 # imprime info básica
-/run/verbose 2 # dice que run se ejecuta
+/control/verbose 1 # imprime info básica
+/run/verbose 1 # dice que run se ejecuta
 /event/verbose 0 #no imprime cada evento para que no sea muy largo
 /tracking/verbose 0
+
+# Inicializacion del Detector
+/detector/setMaterial water
+
 
 # Visualización interactiva mejorada
 /vis/open OGL 600x600-0+0
@@ -25,6 +29,11 @@
 # Inicializo y disparo fotones
 /run/initialize
 /run/beamOn 50
+
+# comandos de ayuda disponibles 
+# Idle> help /detector/
+# Idle> help /detector/setMaterial
+# Idle help /detector/setThickness
 
 
 
