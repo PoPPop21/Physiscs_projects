@@ -52,7 +52,7 @@ void RunAction::BeginOfRunAction(const G4Run *run)
 
 #ifdef USE_ROOT
   // Crear archivo ROOT simple
-  TString rootFileName = TString::Format("data_run%d.root", run->GetRunID());
+  TString rootFileName = TString::Format("../results/data_run%d.root", run->GetRunID());
   rootFile = new TFile(rootFileName.Data(), "RECREATE");
 
   // Crear Tree simple para datos
@@ -78,7 +78,7 @@ void RunAction::BeginOfRunAction(const G4Run *run)
 #endif
 
   // Preparar archivo de resultados
-  std::ofstream resultsFile("results_summary.txt", std::ios::app);
+  std::ofstream resultsFile("../results/results_summary.txt", std::ios::app);
   resultsFile << "\n=== RUN " << run->GetRunID() << " ===\n";
   resultsFile << "Material: " << detector->GetMaterial() << "\n";
   resultsFile << "Espesor: " << detector->GetThickness() / CLHEP::cm << " cm\n";
@@ -115,14 +115,14 @@ void RunAction::EndOfRunAction(const G4Run *run)
 #endif
 
   // Guardar resultados finales
-  std::ofstream resultsFile("results_summary.txt", std::ios::app);
+  std::ofstream resultsFile("../results/results_summary.txt", std::ios::app);
   resultsFile << "Transmitidos: " << transmittedEvents << "\n";
   resultsFile << "Transmisión: " << transmissionRatio << "\n";
   resultsFile << "Coef. atenuación: " << attenuationCoeff << " cm^-1\n";
   resultsFile.close();
 
   // Archivo CSV para ROOT
-  std::ofstream csvFile("attenuation_data.csv", std::ios::app);
+  std::ofstream csvFile("../results/attenuation_data.csv", std::ios::app);
   csvFile << detector->GetMaterial() << ","
           << detector->GetThickness() / CLHEP::cm << ","
           << totalEvents << ","
