@@ -30,7 +30,7 @@ make
 
 ### **1. PREPARACIÓN (solo una vez)**
 ```bash
-cd /home/isabel/Physiscs_projects/GammaAtenuation/build
+cd /Physiscs_projects/GammaAtenuation/build
 make
 ```
 
@@ -109,11 +109,3 @@ GammaAtenuation/
 - Ver `analysis/README.md` para detalles de cada script
 - Los archivos `.mac` definen configuraciones de GEANT4
 - Todos los outputs se guardan automáticamente en `results/`
-
-## 🛠️ Desarrollo
-
-**Rama actual**: `isabel-root-integration`  
-**Autor**: Isabel  
-**Última actualización**: Septiembre 2025  
-
-Para contribuir, mantener la estructura de directorios y ejecutar pruebas antes de commit.

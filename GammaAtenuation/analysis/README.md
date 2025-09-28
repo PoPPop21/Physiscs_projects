@@ -6,7 +6,7 @@ Scripts de análisis ROOT optimizados para simulación de atenuación gamma mult
 
 ### **1. PREPARACIÓN (solo una vez)**
 ```bash
-cd /home/isabel/Physiscs_projects/GammaAtenuation/build
+cd /Physiscs_projects/GammaAtenuation/build
 make
 ```
 
