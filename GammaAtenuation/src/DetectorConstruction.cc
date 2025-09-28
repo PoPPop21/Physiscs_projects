@@ -10,8 +10,10 @@
 #include "G4SDManager.hh"
 #include "MiSensitiveDetector.hh" 
 
-DetectorConstruction::DetectorConstruction() {}
-DetectorConstruction::~DetectorConstruction() {}
+DetectorConstruction::DetectorConstruction() : G4VUserDetectorConstruction() {}
+DetectorConstruction::~DetectorConstruction() {
+    G4cout << "UserDetectorConstruction deleted " << this << G4endl;
+}
 
 G4VPhysicalVolume* DetectorConstruction::Construct() {
     // Mundo mínimo de aire para que compile 
@@ -44,7 +46,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
     auto visDet = new G4VisAttributes(G4Colour(1,0,0,0.6)); // Rojo
     logicDet->SetVisAttributes(visDet);
 
-    auto sd = new MiSensitiveDetector("DetectorHitsCollection");
+    // --- 4. Detector lógico: sensitivedetector. ---
+    auto sd = new MiSensitiveDetector("MyDetectorSD");
     G4SDManager::GetSDMpointer()->AddNewDetector(sd);
     logicDet->SetSensitiveDetector(sd);
 

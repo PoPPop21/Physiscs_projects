@@ -5,16 +5,26 @@
 #include "G4SDManager.hh"
 
 MiSensitiveDetector::MiSensitiveDetector(const G4String& name)
-    : G4VSensitiveDetector(name), hitsCollection(nullptr) {}
+    : G4VSensitiveDetector(name), hitsCollection(nullptr) {
+    
+    // Aquí registramos el nombre de la colección de hits
+    collectionName.insert("DetectorHitsCollection");
+}
 
-MiSensitiveDetector::~MiSensitiveDetector() {}
+MiSensitiveDetector::~MiSensitiveDetector() {
+    G4cout << "MiSensitiveDetector deleted " << this << G4endl;
+}
 
 void MiSensitiveDetector::Initialize(G4HCofThisEvent* hce) {    
     hitsCollection = new MiHitsCollection(SensitiveDetectorName, collectionName[0]);
     
+    G4cout << "MiSensitiveDetector::Initialize: SD name= " << SensitiveDetectorName << " collectionName[0]= " << collectionName[0] << G4endl;
+
+
     static G4int hcID = -1;
     if (hcID < 0) {
         hcID = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
+        G4cout << "MiSensitiveDetector: got hcID = " << hcID << G4endl;
     }
     hce->AddHitsCollection(hcID, hitsCollection);
 }
