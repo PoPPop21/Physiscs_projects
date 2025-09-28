@@ -45,28 +45,67 @@ G4Material* DetectorConstruction::DefineMaterials() {
     G4NistManager* nist = G4NistManager::Instance();
     G4Material* material = nullptr;
 
-    if (materialType == "water") {
+    // Normalizar materialType por si acaso
+    G4String m = materialType;
+    // opcional: forzar minúsculas si quieres (requiere transformación manual)
+
+    if (m == "water") {
         material = nist->FindOrBuildMaterial("G4_WATER");
     }
-    else if (materialType == "muscle") {
-        material = nist->FindOrBuildMaterial("G4_MUSCLE_ICRP");
+    else if (m == "muscle") {
+        // Segun ICRU Report 44
+        G4double density = 1.05*g/cm3;
+        material = new G4Material("muscle", density, 9);
+        material->AddElement(nist->FindOrBuildElement("H"), 10.2*perCent);
+        material->AddElement(nist->FindOrBuildElement("C"), 14.3*perCent);
+        material->AddElement(nist->FindOrBuildElement("N"), 3.4*perCent);
+        material->AddElement(nist->FindOrBuildElement("O"), 71.0*perCent);
+        material->AddElement(nist->FindOrBuildElement("Na"), 0.1*perCent);
+        material->AddElement(nist->FindOrBuildElement("P"), 0.2*perCent);
+        material->AddElement(nist->FindOrBuildElement("S"), 0.5*perCent);
+        material->AddElement(nist->FindOrBuildElement("Cl"), 0.1*perCent);
+        material->AddElement(nist->FindOrBuildElement("K"), 0.2*perCent);
     }
-    else if (materialType == "bone") {
-        material = nist->FindOrBuildMaterial("G4_BONE_ICRP");
+    else if (m == "bone") {
+        // Hueso segun ICRU report 44
+        G4double density = 1.92*g/cm3;
+        material = new G4Material("bone", density, 9);
+        material->AddElement(nist->FindOrBuildElement("H"), 3.4*perCent);
+        material->AddElement(nist->FindOrBuildElement("C"), 15.5*perCent);
+        material->AddElement(nist->FindOrBuildElement("N"), 4.2*perCent);
+        material->AddElement(nist->FindOrBuildElement("O"), 43.5*perCent);
+        material->AddElement(nist->FindOrBuildElement("Na"), 0.1*perCent);
+        material->AddElement(nist->FindOrBuildElement("Mg"), 0.2*perCent);
+        material->AddElement(nist->FindOrBuildElement("P"), 16.9*perCent);
+        material->AddElement(nist->FindOrBuildElement("S"), 0.2*perCent);
+        material->AddElement(nist->FindOrBuildElement("Ca"), 16.0*perCent);
     }
-    else if (materialType == "lead") {
+    else if (m == "lead") {
         material = nist->FindOrBuildMaterial("G4_Pb");
     }
-    else if (materialType == "concrete") {
+    else if (m == "concrete") {
         material = nist->FindOrBuildMaterial("G4_CONCRETE");
     }
     else {
-        G4cerr << "Material " << materialType << " no reconocido. Usando agua por defecto." << G4endl;
+        G4cerr << "Material " << m << " no reconocido. Usando agua por defecto." << G4endl;
         material = nist->FindOrBuildMaterial("G4_WATER");
+    }
+
+    // DIAGNÓSTICO: informar qué material se obtuvo y fallback si es null
+    if (!material) {
+        G4cerr << "ERROR: FindOrBuildMaterial devolvió NULL para: " << m << G4endl;
+        G4cerr << " -> Haciendo fallback a G4_WATER para evitar crash." << G4endl;
+        material = nist->FindOrBuildMaterial("G4_WATER");
+        if (!material) {
+            G4cerr << "ERROR CRÍTICO: no se pudo cargar G4_WATER. Revisa instalación de Geant4." << G4endl;
+        }
+    } else {
+        G4cout << "Material cargado: " << material->GetName() << " (para request: " << m << ")" << G4endl;
     }
 
     return material;
 }
+
 
 /*DetectorConstruction::DetectorConstruction() : G4VUserDetectorConstruction() {}
 DetectorConstruction::~DetectorConstruction() {}*/
@@ -87,6 +126,10 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
 
     // --- 2. Materiales absorbentes --- 
     G4Material* absorber_mat = DefineMaterials(); //nist->FindOrBuildMaterial("G4_WATER"); -> Material absorbente 
+    if (!absorber_mat) {
+        G4cerr << "Fatal: absorber_mat es NULL. Usando G4_WATER temporalmente." << G4endl;
+        absorber_mat = G4NistManager::Instance()->FindOrBuildMaterial("G4_WATER");
+    }
     G4double absorber_thickness = thickness; // 5 cm -> espesor del material absorbente
     auto solidAbs = new G4Box("Absorber", 10*cm, 10*cm, absorber_thickness/2.0);
     auto logicAbs = new G4LogicalVolume(solidAbs, absorber_mat, "Absorber");
@@ -112,9 +155,14 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
     logicDet->SetVisAttributes(visDet);
 
     // --- 4. Detector lógico: sensitivedetector. ---
-    auto sd = new MiSensitiveDetector("MyDetectorSD"); // Tengo la duda de si es Detectorhitscollection o MyDetectorSD
-    G4SDManager::GetSDMpointer()->AddNewDetector(sd);
+    auto sdManager = G4SDManager::GetSDMpointer();
+    auto sd = sdManager->FindSensitiveDetector("MyDetectorSD", false);
+    if (!sd) {
+        sd = new MiSensitiveDetector("MyDetectorSD");
+        sdManager->AddNewDetector(sd);
+    }
     logicDet->SetSensitiveDetector(sd);
+
 
     return physWorld;
 
