@@ -177,6 +177,30 @@ src/EventAction.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gammaAtt.dir/build.make CMakeFiles/gammaAtt.dir/src/EventAction.cc.s
 .PHONY : src/EventAction.cc.s
 
+src/MiHit.o: src/MiHit.cc.o
+.PHONY : src/MiHit.o
+
+# target to build an object file
+src/MiHit.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gammaAtt.dir/build.make CMakeFiles/gammaAtt.dir/src/MiHit.cc.o
+.PHONY : src/MiHit.cc.o
+
+src/MiHit.i: src/MiHit.cc.i
+.PHONY : src/MiHit.i
+
+# target to preprocess a source file
+src/MiHit.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gammaAtt.dir/build.make CMakeFiles/gammaAtt.dir/src/MiHit.cc.i
+.PHONY : src/MiHit.cc.i
+
+src/MiHit.s: src/MiHit.cc.s
+.PHONY : src/MiHit.s
+
+# target to generate assembly for a file
+src/MiHit.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gammaAtt.dir/build.make CMakeFiles/gammaAtt.dir/src/MiHit.cc.s
+.PHONY : src/MiHit.cc.s
+
 src/MiSensitiveDetector.o: src/MiSensitiveDetector.cc.o
 .PHONY : src/MiSensitiveDetector.o
 
@@ -312,6 +336,9 @@ help:
 	@echo "... src/EventAction.o"
 	@echo "... src/EventAction.i"
 	@echo "... src/EventAction.s"
+	@echo "... src/MiHit.o"
+	@echo "... src/MiHit.i"
+	@echo "... src/MiHit.s"
 	@echo "... src/MiSensitiveDetector.o"
 	@echo "... src/MiSensitiveDetector.i"
 	@echo "... src/MiSensitiveDetector.s"

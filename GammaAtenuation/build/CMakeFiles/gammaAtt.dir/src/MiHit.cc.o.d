@@ -1,10 +1,10 @@
-CMakeFiles/gammaAtt.dir/src/EventAction.cc.o: \
- /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/EventAction.cc \
+CMakeFiles/gammaAtt.dir/src/MiHit.cc.o: \
+ /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/MiHit.cc \
  /usr/include/stdc-predef.h \
- /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/include/EventAction.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4UserEventAction.hh \
- /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/include/RunAction.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4UserRunAction.hh \
+ /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/include/MiHit.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4VHit.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/globals.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4ios.hh \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4Types.hh \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4GlobalConfig.hh \
  /usr/include/c++/11/complex \
@@ -179,10 +179,6 @@ CMakeFiles/gammaAtt.dir/src/EventAction.cc.o: \
  /usr/include/c++/11/bits/istream.tcc \
  /usr/include/c++/11/bits/sstream.tcc \
  /home/sofi/GEANT4/geant4-install/include/Geant4/tls.hh \
- /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/include/DetectorConstruction.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4VUserDetectorConstruction.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/globals.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4ios.hh \
  /usr/include/c++/11/iostream /usr/include/c++/11/algorithm \
  /usr/include/c++/11/utility /usr/include/c++/11/bits/stl_relops.h \
  /usr/include/c++/11/bits/stl_algo.h \
@@ -239,158 +235,14 @@ CMakeFiles/gammaAtt.dir/src/EventAction.cc.o: \
  /usr/include/c++/11/bits/parse_numbers.h \
  /usr/include/c++/11/bits/std_mutex.h \
  /usr/include/c++/11/bits/unique_lock.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/globals.hh \
- /usr/include/c++/11/fstream \
- /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4Event.hh \
- /usr/include/c++/11/set /usr/include/c++/11/bits/stl_set.h \
- /usr/include/c++/11/bits/stl_multiset.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/evtdefs.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4THitsCollection.hh \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4Allocator.hh \
  /usr/include/c++/11/cstddef \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4AllocatorPool.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4PrimaryVertex.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4PrimaryParticle.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4VHitsCollection.hh \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4ThreeVector.hh \
  /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/ThreeVector.h \
  /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Utility/defs.h \
  /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/ThreeVector.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/pwdefs.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4HCofThisEvent.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4VHitsCollection.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4DCofThisEvent.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4VDigiCollection.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4TrajectoryContainer.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4VTrajectory.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4VUserEventInformation.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4SDManager.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4HCtable.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4SDStructure.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4VSensitiveDetector.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4CollectionNameVector.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4Step.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4VPhysicalVolume.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/geomdefs.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4RotationMatrix.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/Rotation.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/RotationInterfaces.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/LorentzVector.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/LorentzVector.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/AxisAngle.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/AxisAngle.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/RotationInterfaces.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/RotationX.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/RotationX.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Units/PhysicalConstants.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Units/SystemOfUnits.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/RotationY.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/RotationY.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/RotationZ.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/RotationZ.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Vector/Rotation.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4GeomSplitter.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/geomwdefs.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4AutoLock.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4Threading.hh \
- /usr/include/c++/11/condition_variable \
- /usr/include/c++/11/bits/shared_ptr.h \
- /usr/include/c++/11/bits/shared_ptr_base.h \
- /usr/include/c++/11/bits/allocated_ptr.h \
- /usr/include/c++/11/ext/concurrence.h /usr/include/c++/11/future \
- /usr/include/c++/11/atomic /usr/include/c++/11/bits/atomic_base.h \
- /usr/include/c++/11/bits/atomic_lockfree_defines.h \
- /usr/include/c++/11/bits/atomic_futex.h \
- /usr/include/c++/11/bits/std_thread.h /usr/include/c++/11/thread \
- /usr/include/c++/11/bits/this_thread_sleep.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4VPhysicalVolume.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4StepPoint.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4SteppingControl.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4StepStatus.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4TouchableHandle.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4VTouchable.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4TouchableHistory.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4NavigationHistory.hh \
- /usr/include/assert.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4AffineTransform.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4Transform3D.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Geometry/Transform3D.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Geometry/Transform3D.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Geometry/Point3D.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Geometry/Vector3D.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/CLHEP/Geometry/Normal3D.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4AffineTransform.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4NavigationLevel.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4NavigationLevelRep.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4NavigationLevelRep.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4NavigationLevel.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4NavigationHistoryPool.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4NavigationHistory.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4LogicalVolume.hh \
- /usr/include/c++/11/memory \
- /usr/include/c++/11/bits/stl_raw_storage_iter.h \
- /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \
- /usr/include/c++/11/bits/shared_ptr_atomic.h \
- /usr/include/c++/11/backward/auto_ptr.h \
- /usr/include/c++/11/pstl/glue_memory_defs.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4Region.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4Region.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4LogicalVolume.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4TouchableHistory.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4ReferenceCountedHandle.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4Material.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4Element.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4ElementTable.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4ElementVector.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4IonisParamElm.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4Isotope.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4IsotopeVector.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4IonisParamMat.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4DensityEffectCalculator.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4MaterialPropertiesTable.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4MaterialPropertiesIndex.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4MaterialPropertyVector.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4PhysicsFreeVector.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4PhysicsVector.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4Log.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4PhysicsVectorType.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4PhysicsVector.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4MaterialTable.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4SandiaTable.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4OrderedTable.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4DataVector.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4DataVector.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4StepPoint.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4TrackVector.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4Step.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4Track.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/trkdefs.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4DynamicParticle.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4ElectronOccupancy.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4LorentzVector.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4ParticleDefinition.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4PDefManager.hh \
- /usr/include/c++/11/stdlib.h \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4ParticleDefinition.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4ParticleMomentum.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4DynamicParticle.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4TrackStatus.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4VUserTrackInformation.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4PhysicsModelCatalog.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4Track.icc \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4VHit.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4VReadOutGeometry.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4SensitiveVolumeList.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4VSDFilter.hh \
- /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/include/MiSensitiveDetector.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4VSensitiveDetector.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4THitsCollection.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4Step.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4HCofThisEvent.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4VHit.hh \
- /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/include/MiHit.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4ThreeVector.hh \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4Allocator.hh \
- /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/include/MiHit.hh
+ /home/sofi/GEANT4/geant4-install/include/Geant4/globals.hh

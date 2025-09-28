@@ -368,6 +368,11 @@ CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.o: \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4Step.hh \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4HCofThisEvent.hh \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4VHit.hh \
+ /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/include/MiHit.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4ThreeVector.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4Allocator.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/globals.hh \
+ /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/include/MiHit.hh \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4SDManager.hh \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4HCtable.hh \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4SDStructure.hh \

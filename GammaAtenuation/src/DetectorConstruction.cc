@@ -42,8 +42,11 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
     new G4PVPlacement(0, G4ThreeVector(0,0, absorber_thickness/2.0 + 2*cm), 
                       logicDet, "Detector", logicWorld, false, 0);
     auto visDet = new G4VisAttributes(G4Colour(1,0,0,0.6)); // Rojo
-    auto sd = new MiSensitiveDetector("DetectorHitsCollection");
     logicDet->SetVisAttributes(visDet);
+
+    auto sd = new MiSensitiveDetector("DetectorHitsCollection");
+    G4SDManager::GetSDMpointer()->AddNewDetector(sd);
+    logicDet->SetSensitiveDetector(sd);
 
     return physWorld;
 

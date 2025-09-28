@@ -23,17 +23,17 @@ EventAction::~EventAction() {
 }
 
 void EventAction::BeginOfEventAction(const G4Event* event) {
-  G4int eventID = event->GetEventID();
-  G4int detected = 0;
-  G4HCofThisEvent* HCE = event->GetHCofThisEvent();
-  if (HCE) {
-      G4int hcID = G4SDManager::GetSDMpointer()->GetCollectionID("DetectorHitsCollection");
-      auto hitsCollection = static_cast<MiHitsCollection*>(HCE->GetHC(hcID)); // Usar tipo base
-      if (hitsCollection && hitsCollection->GetSize() > 0) {
-          detected = 1;
-      }
-  }
-  outputFile << eventID << " , " << detected << "\n";
+    G4int eventID = event->GetEventID();
+    G4int detected = 0;
+    G4HCofThisEvent* HCE = event->GetHCofThisEvent();
+    if (HCE) {
+        G4int hcID = G4SDManager::GetSDMpointer()->GetCollectionID("DetectorHitsCollection");
+        auto hitsCollection = static_cast<G4THitsCollection<MiHit>*>(HCE->GetHC(hcID));
+        if (hitsCollection && hitsCollection->GetSize() > 0) {
+            detected = 1;
+        }
+    }
+    outputFile << eventID << " , " << detected << "\n";
 }
 
 void EventAction::EndOfEventAction(const G4Event* event) {

@@ -1,23 +1,36 @@
 #include "MiSensitiveDetector.hh"
+#include "MiHit.hh" 
 #include "G4Step.hh"
 #include "G4HCofThisEvent.hh"
-#include "G4VHit.hh"
 #include "G4SDManager.hh"
-#include "MiHit.hh"
 
 MiSensitiveDetector::MiSensitiveDetector(const G4String& name)
-    : G4VSensitiveDetector(name) {}
+    : G4VSensitiveDetector(name), hitsCollection(nullptr) {}
 
 MiSensitiveDetector::~MiSensitiveDetector() {}
 
-void MiSensitiveDetector::Initialize(G4HCofThisEvent* hce) {
-    // Crear una colección de hits vacía
-    auto hitsCollection = new G4HitsCollection<G4VHit>(SensitiveDetectorName, "DetectorHitsCollection");
-    G4int hcID = G4SDManager::GetSDMpointer()->GetCollectionID("DetectorHitsCollection");
+void MiSensitiveDetector::Initialize(G4HCofThisEvent* hce) {    
+    hitsCollection = new MiHitsCollection(SensitiveDetectorName, collectionName[0]);
+    
+    static G4int hcID = -1;
+    if (hcID < 0) {
+        hcID = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
+    }
     hce->AddHitsCollection(hcID, hitsCollection);
 }
 
 G4bool MiSensitiveDetector::ProcessHits(G4Step* step, G4TouchableHistory* /*history*/) {
-    // Aquí puedes registrar información del hit, si lo necesitas
+    auto hit = new MiHit();
+    
+    // Energía depositada
+    hit->SetEdep(step->GetTotalEnergyDeposit());
+
+    // posicion del pre-step point
+    hit->SetPos(step->GetPreStepPoint()->GetPosition());
+
+
+    // Insertamos en la colección 
+    hitsCollection->insert(hit);
+
     return true;
 }

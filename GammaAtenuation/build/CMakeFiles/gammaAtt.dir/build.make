@@ -97,10 +97,24 @@ CMakeFiles/gammaAtt.dir/src/EventAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gammaAtt.dir/src/EventAction.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/EventAction.cc -o CMakeFiles/gammaAtt.dir/src/EventAction.cc.s
 
+CMakeFiles/gammaAtt.dir/src/MiHit.cc.o: CMakeFiles/gammaAtt.dir/flags.make
+CMakeFiles/gammaAtt.dir/src/MiHit.cc.o: ../src/MiHit.cc
+CMakeFiles/gammaAtt.dir/src/MiHit.cc.o: CMakeFiles/gammaAtt.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/gammaAtt.dir/src/MiHit.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gammaAtt.dir/src/MiHit.cc.o -MF CMakeFiles/gammaAtt.dir/src/MiHit.cc.o.d -o CMakeFiles/gammaAtt.dir/src/MiHit.cc.o -c /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/MiHit.cc
+
+CMakeFiles/gammaAtt.dir/src/MiHit.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gammaAtt.dir/src/MiHit.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/MiHit.cc > CMakeFiles/gammaAtt.dir/src/MiHit.cc.i
+
+CMakeFiles/gammaAtt.dir/src/MiHit.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gammaAtt.dir/src/MiHit.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/MiHit.cc -o CMakeFiles/gammaAtt.dir/src/MiHit.cc.s
+
 CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.o: CMakeFiles/gammaAtt.dir/flags.make
 CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.o: ../src/MiSensitiveDetector.cc
 CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.o: CMakeFiles/gammaAtt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.o -MF CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.o.d -o CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.o -c /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/MiSensitiveDetector.cc
 
 CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.s: cmake_force
 CMakeFiles/gammaAtt.dir/src/PhysicsList.cc.o: CMakeFiles/gammaAtt.dir/flags.make
 CMakeFiles/gammaAtt.dir/src/PhysicsList.cc.o: ../src/PhysicsList.cc
 CMakeFiles/gammaAtt.dir/src/PhysicsList.cc.o: CMakeFiles/gammaAtt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/gammaAtt.dir/src/PhysicsList.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/gammaAtt.dir/src/PhysicsList.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gammaAtt.dir/src/PhysicsList.cc.o -MF CMakeFiles/gammaAtt.dir/src/PhysicsList.cc.o.d -o CMakeFiles/gammaAtt.dir/src/PhysicsList.cc.o -c /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/PhysicsList.cc
 
 CMakeFiles/gammaAtt.dir/src/PhysicsList.cc.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/gammaAtt.dir/src/PhysicsList.cc.s: cmake_force
 CMakeFiles/gammaAtt.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/gammaAtt.dir/flags.make
 CMakeFiles/gammaAtt.dir/src/PrimaryGeneratorAction.cc.o: ../src/PrimaryGeneratorAction.cc
 CMakeFiles/gammaAtt.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/gammaAtt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/gammaAtt.dir/src/PrimaryGeneratorAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/gammaAtt.dir/src/PrimaryGeneratorAction.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gammaAtt.dir/src/PrimaryGeneratorAction.cc.o -MF CMakeFiles/gammaAtt.dir/src/PrimaryGeneratorAction.cc.o.d -o CMakeFiles/gammaAtt.dir/src/PrimaryGeneratorAction.cc.o -c /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/PrimaryGeneratorAction.cc
 
 CMakeFiles/gammaAtt.dir/src/PrimaryGeneratorAction.cc.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/gammaAtt.dir/src/PrimaryGeneratorAction.cc.s: cmake_force
 CMakeFiles/gammaAtt.dir/src/RunAction.cc.o: CMakeFiles/gammaAtt.dir/flags.make
 CMakeFiles/gammaAtt.dir/src/RunAction.cc.o: ../src/RunAction.cc
 CMakeFiles/gammaAtt.dir/src/RunAction.cc.o: CMakeFiles/gammaAtt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/gammaAtt.dir/src/RunAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/gammaAtt.dir/src/RunAction.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gammaAtt.dir/src/RunAction.cc.o -MF CMakeFiles/gammaAtt.dir/src/RunAction.cc.o.d -o CMakeFiles/gammaAtt.dir/src/RunAction.cc.o -c /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/RunAction.cc
 
 CMakeFiles/gammaAtt.dir/src/RunAction.cc.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/gammaAtt.dir/src/RunAction.cc.s: cmake_force
 CMakeFiles/gammaAtt.dir/src/main.cc.o: CMakeFiles/gammaAtt.dir/flags.make
 CMakeFiles/gammaAtt.dir/src/main.cc.o: ../src/main.cc
 CMakeFiles/gammaAtt.dir/src/main.cc.o: CMakeFiles/gammaAtt.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/gammaAtt.dir/src/main.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/gammaAtt.dir/src/main.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gammaAtt.dir/src/main.cc.o -MF CMakeFiles/gammaAtt.dir/src/main.cc.o.d -o CMakeFiles/gammaAtt.dir/src/main.cc.o -c /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/src/main.cc
 
 CMakeFiles/gammaAtt.dir/src/main.cc.i: cmake_force
@@ -171,6 +185,7 @@ CMakeFiles/gammaAtt.dir/src/main.cc.s: cmake_force
 gammaAtt_OBJECTS = \
 "CMakeFiles/gammaAtt.dir/src/DetectorConstruction.cc.o" \
 "CMakeFiles/gammaAtt.dir/src/EventAction.cc.o" \
+"CMakeFiles/gammaAtt.dir/src/MiHit.cc.o" \
 "CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.o" \
 "CMakeFiles/gammaAtt.dir/src/PhysicsList.cc.o" \
 "CMakeFiles/gammaAtt.dir/src/PrimaryGeneratorAction.cc.o" \
@@ -182,6 +197,7 @@ gammaAtt_EXTERNAL_OBJECTS =
 
 gammaAtt: CMakeFiles/gammaAtt.dir/src/DetectorConstruction.cc.o
 gammaAtt: CMakeFiles/gammaAtt.dir/src/EventAction.cc.o
+gammaAtt: CMakeFiles/gammaAtt.dir/src/MiHit.cc.o
 gammaAtt: CMakeFiles/gammaAtt.dir/src/MiSensitiveDetector.cc.o
 gammaAtt: CMakeFiles/gammaAtt.dir/src/PhysicsList.cc.o
 gammaAtt: CMakeFiles/gammaAtt.dir/src/PrimaryGeneratorAction.cc.o
@@ -226,7 +242,7 @@ gammaAtt: /home/sofi/GEANT4/geant4-install/lib/libG4global.so
 gammaAtt: /home/sofi/GEANT4/geant4-install/lib/libG4clhep.so
 gammaAtt: /home/sofi/GEANT4/geant4-install/lib/libG4ptl.so.3.0.0
 gammaAtt: CMakeFiles/gammaAtt.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable gammaAtt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sofi/REPOS/Physiscs_projects/GammaAtenuation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable gammaAtt"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gammaAtt.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

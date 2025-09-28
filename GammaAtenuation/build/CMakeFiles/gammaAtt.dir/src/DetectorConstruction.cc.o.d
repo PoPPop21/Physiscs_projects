@@ -405,4 +405,7 @@ CMakeFiles/gammaAtt.dir/src/DetectorConstruction.cc.o: \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4THitsCollection.hh \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4Step.hh \
  /home/sofi/GEANT4/geant4-install/include/Geant4/G4HCofThisEvent.hh \
- /home/sofi/GEANT4/geant4-install/include/Geant4/G4VHit.hh
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4VHit.hh \
+ /home/sofi/REPOS/Physiscs_projects/GammaAtenuation/include/MiHit.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4ThreeVector.hh \
+ /home/sofi/GEANT4/geant4-install/include/Geant4/G4Allocator.hh
