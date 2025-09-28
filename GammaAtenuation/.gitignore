@@ -34,7 +34,7 @@ G4*.dat
 *.mac~
 
 screenshot.png
-*.png
+#*.png
 *.jpg
 *.gif
 
