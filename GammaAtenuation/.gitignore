@@ -1,0 +1,48 @@
+build/
+Build/
+BUILD/
+
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+.cmake/
+
+GammaAttenuation
+*.exe
+
+*.o
+*.a
+*.so
+*.dylib
+
+# ROOT files
+*.root
+*.C
+*.pcm
+*.d
+
+output.txt
+*.out
+*.log
+
+# Geant4 generated files
+G4*.dat
+*.wrl
+*.prim
+*.mac~
+
+screenshot.png
+*.png
+*.jpg
+*.gif
+
+# VS Code settings (optional - some prefer to keep)
+.vscode/
+.vs/
+
+# Temporary files
+*~
+*.tmp
+*.temp

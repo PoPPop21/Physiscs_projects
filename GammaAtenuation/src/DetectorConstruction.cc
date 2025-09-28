@@ -15,52 +15,11 @@ Fecha: Octubre 2025
 #include "G4SDManager.hh"
 #include "MiSensitiveDetector.hh" 
 
-/* Defino los valores por defecto que tenrá mi detector cuando arranque la simualción*/
-DetectorConstruction::DetectorConstruction() 
-    : materialType("water"), thickness(5.0*cm){} // Material inicial es agua, con espesor de 5cm.
 
+
+
+DetectorConstruction::DetectorConstruction() : G4VUserDetectorConstruction() {}
 DetectorConstruction::~DetectorConstruction() {}
-
-/* Cambiamos el material dinámicamente */
-void DetectorConstruction::SetMaterialType(const G4String& material) { // Setmaterial -> deja elegir otro amterial desde la interfaz macros. 
-    materialType = material;
-    // Forzar reconstrucción si ya está construido
-    G4RunManager::GetRunManager()->ReinitializeGeometry();
-}
-
-/* Cambiar espesor dinámicamente */
-void DetectorConstruction::SetThickness(G4double thick) { // Puede cambiar de 5cm a 10cm desde la interfaz macros.
-    thickness = thick;
-    G4RunManager::GetRunManager()->ReinitializeGeometry();
-}
-
-/* Deefinición de materiales */
-G4Material* DetectorConstruction::DefineMaterials() {
-    G4NistManager* nist = G4NistManager::Instance();
-    G4Material* material = nullptr;
-
-    if (materialType == "water") {
-        material = nist->FindOrBuildMaterial("G4_WATER");
-    }
-    else if (materialType == "muscle") {
-        material = nist->FindOrBuildMaterial("G4_MUSCLE_ICRP");
-    }
-    else if (materialType == "bone") {
-        material = nist->FindOrBuildMaterial("G4_BONE_ICRP");
-    }
-    else if (materialType == "lead") {
-        material = nist->FindOrBuildMaterial("G4_Pb");
-    }
-    else if (materialType == "concrete") {
-        material = nist->FindOrBuildMaterial("G4_CONCRETE");
-    }
-    else {
-        G4cerr << "Material " << materialType << " no reconocido. Usando agua por defecto." << G4endl;
-        material = nist->FindOrBuildMaterial("G4_WATER");
-    }
-
-    return material;
-}
 
 /* Creación de la geometría del mundo y el detector */
 
@@ -77,7 +36,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
     logicWorld->SetVisAttributes(G4VisAttributes::GetInvisible()); // Invisible
 
     // --- 2. Materiales absorbentes --- 
-    G4Material* absorber_mat = DefineMaterials(); // Material absorbente 
+    G4Material* absorber_mat = nist->FindOrBuildMaterial("G4_WATER"); // Material absorbente 
     G4double absorber_thickness = 5*cm;
     auto solidAbs = new G4Box("Absorber", 10*cm, 10*cm, absorber_thickness/2.0);
     auto logicAbs = new G4LogicalVolume(solidAbs, absorber_mat, "Absorber");
