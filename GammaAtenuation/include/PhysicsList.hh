@@ -11,7 +11,7 @@ class PhysicsList : public G4VModularPhysicsList {
     ~PhysicsList() override;
 
   private:
-    G4DecayPhysics* decayPhysics;
+    G4DecayPhysics* decayPhysics; // Solo mantener la referencia, no eliminar manualmente
 };
 
 #endif // PHYSICSLIST_HH

@@ -3,7 +3,7 @@
 
 PhysicsList::PhysicsList()
     : G4VModularPhysicsList() {
-        // Registrar la REM estándar para fotones en rango médico.
+        // Registrar la física electromagnética estándar para fotones
         RegisterPhysics(new G4EmStandardPhysics());
 
         // Registrar decaimientos
@@ -12,5 +12,6 @@ PhysicsList::PhysicsList()
     }
 
 PhysicsList::~PhysicsList() {
-    delete decayPhysics;
+    // NO eliminar decayPhysics manualmente
+    // G4VModularPhysicsList se encarga de la limpieza automáticamente
 }

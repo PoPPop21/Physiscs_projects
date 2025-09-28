@@ -7,13 +7,13 @@
 /tracking/verbose 0
 
 # Visualización interactiva mejorada
-#/vis/open OGL 600x600-0+0
-#/vis/viewer/set/style surface
+/vis/open OGL 600x600-0+0
+/vis/viewer/set/style surface
 /vis/viewer/set/auxiliaryEdge true
 /vis/viewer/set/viewpointThetaPhi 60 30
 /vis/drawVolume
 /vis/scene/add/axes 0 0 0 10 cm
-/vis/viewer/zoom 2.0
+#/vis/viewer/zoom 2.0
 
 # Mostrar trayectoria
 /vis/scene/add/trajectories
