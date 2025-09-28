@@ -1,0 +1,17 @@
+# Directorios de build
+build/
+
+# Configuraciones de IDE
+.vscode/
+.vs/
+*.swp
+*.swo
+*~
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+*.temp
