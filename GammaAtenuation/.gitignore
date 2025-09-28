@@ -19,7 +19,7 @@ GammaAttenuation
 
 # ROOT files
 *.root
-*.C
+#*.C
 *.pcm
 *.d
 
