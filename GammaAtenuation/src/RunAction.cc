@@ -37,6 +37,7 @@ RunAction::~RunAction()
     rootFile->Close();
     delete rootFile;
   }
+
 #endif
 }
 
@@ -52,7 +53,7 @@ void RunAction::BeginOfRunAction(const G4Run *run)
 
 #ifdef USE_ROOT
   // Crear archivo ROOT simple
-  TString rootFileName = TString::Format("../results/data_run%d.root", run->GetRunID());
+  TString rootFileName = TString::Format("../results/data_run_%s.root", detector->GetMaterial().c_str());
   rootFile = new TFile(rootFileName.Data(), "RECREATE");
 
   // Crear Tree simple para datos
@@ -97,7 +98,8 @@ void RunAction::EndOfRunAction(const G4Run *run)
   std::cout << "Coeficiente de atenuación: " << attenuationCoeff << " cm^-1" << std::endl;
 
 #ifdef USE_ROOT
-  // Llenar datos básicos
+  // --- DAtos que recolecta ROOT ---
+  // Estos datos son los que utilizaremos más adelante en multi_analysis.C
   runData.transmittedEvents = transmittedEvents;
   runData.transmissionRatio = transmissionRatio;
   runData.attenuationCoeff = attenuationCoeff;
@@ -109,9 +111,13 @@ void RunAction::EndOfRunAction(const G4Run *run)
   rootFile->cd();
   attenuationTree->Write();
   rootFile->Close();
+  rootFile->Close(); // Cerramos el archivo aquí
+  delete rootFile;   // Liberamos la memoria
+  rootFile = nullptr; // Evitamos que el destructor intente borrarlo de nuevo
 
   G4cout << "ROOT: Datos guardados" << G4endl;
   G4cout << "ROOT: Archivo: data_run" << run->GetRunID() << ".root" << G4endl;
+  G4cout << "ROOT: Datos guardados en data_run_" << detector->GetMaterial() << ".root" << G4endl;
 #endif
 
   // Guardar resultados finales

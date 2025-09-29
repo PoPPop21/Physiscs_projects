@@ -1,7 +1,7 @@
 // Script de ROOT para analizar datos de atenuación de gamma
 // Uso: root -l analyze_attenuation.C
 
-void analyze_attenuation(const char *filename = "../results/data_run0.root")
+void analyze_attenuation(const char *filename = "../results/data_run_water.root")
 {
 
     // Configurar estilo

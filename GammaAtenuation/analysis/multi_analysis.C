@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+// -- Librerías de ROOT --
 #include <TFile.h>
 #include <TTree.h>
 #include <TH1F.h>
@@ -9,6 +10,16 @@
 #include <TStyle.h>
 #include <TGraph.h>
 #include <TMath.h>
+
+/* --- Funcionamiento de este script ---
+   Este script analiza los resultados de las simulaciones multi-material
+   y genera gráficas comparativas y un resumen tipo DataFrame.
+   Se asume que los datos de cada material ya fueron obtenidos y están
+   almacenados en archivos específicos.
+
+   -> Actualmente los datos son hipotéticos y deben ser reemplazados
+      por los resultados reales de las simulaciones.
+*/
 
 using namespace std;
 
@@ -20,8 +31,9 @@ void multi_analysis()
     // Para ahora, vamos a usar los datos que obtuvimos manualmente
     struct MaterialData
     {
+        // Guarda lo necesario de cada material para el análisis
         string name;
-        string description;
+        string description; // Descripción legible  
         double density;      // g/cm³
         double transmission; // fracción transmitida
         double mu;           // coeficiente de atenuación cm⁻¹
@@ -29,11 +41,80 @@ void multi_analysis()
         int total;           // eventos totales
     };
 
+    /* -- Datos hipotéticos (reemplazar con resultados reales) ---
     vector<MaterialData> materials = {
         {"agua", "Agua (tejido blando)", 1.0, 0.84415, 0.0339, 84415, 100000},
         {"musculo", "Músculo esquelético", 1.05, 0.8391, 0.0351, 83910, 100000},
-        {"hueso", "Hueso compacto", 1.85, 0.74444, 0.0590, 74444, 100000}};
+        {"hueso", "Hueso compacto", 1.85, 0.74444, 0.0590, 74444, 100000},
+        // --- Datos hipotéticos para concreto y plomo ---
+        {"concreto", "Concreto", 2.3, 0.65, 0.085, 65000, 100000},
+        {"plomo", "Plomo", 11.34, 0.30, 0.240, 30000, 100000}
+    };*/
 
+    // --- Datos reales obtenidos de las simulaciones ---
+    vector<string> run_files = {
+        "../results/data_run_water.root", // Asumimos que es agua
+        "../results/data_run_muscle.root", // Asumimos que es músculo
+        "../results/data_run_bone.root", // Asumimos que es hueso
+        "../results/data_run_concrete.root", // Asumimos que es concreto
+        "../results/data_run_lead.root"  // Asumimos que es plomo
+    };
+
+    // Densidades y descripciones
+    map<string, pair<double, string>> material_info = {
+        {"water", {1.0, "Agua (tejido blando)"}},
+        {"muscle", {1.05, "Músculo esquelético"}},
+        {"bone", {1.85, "Hueso compacto"}},
+        {"concrete", {2.3, "Concreto"}},
+        {"lead", {11.34, "Plomo"}}
+    };
+
+    vector<MaterialData> materials;
+
+    cout << "Cargando datos de archivos ROOT..." << endl;
+
+    for (const auto &file_name : run_files)
+    {
+        TFile *file = TFile::Open(file_name.c_str());
+        if (!file || file->IsZombie())
+        {
+            cout << "Error: No se pudo abrir el archivo " << file_name << endl;
+            continue;
+        }
+        TTree *tree = (TTree *)file->Get("data");
+        if (!tree)
+        {
+            cout << "Error: No se encontró el TTree 'data' en " << file_name << endl;
+            file->Close();
+            continue;
+        }
+
+        // Variables para almacenar los datos de las ramas del TTree
+        char material_name[50];
+        Int_t totalEvents, transmittedEvents;
+        Float_t transmissionRatio, attenuationCoeff;
+
+        // Conectar las ramas del TTree a nuestras variables
+        tree->SetBranchAddress("material", material_name);
+        tree->SetBranchAddress("totalEvents", &totalEvents);
+        tree->SetBranchAddress("transmittedEvents", &transmittedEvents);
+        tree->SetBranchAddress("transmissionRatio", &transmissionRatio);
+        tree->SetBranchAddress("attenuationCoeff", &attenuationCoeff);
+
+        // Leer la primera (y única) entrada del TTree
+        tree->GetEntry(0);
+
+        // Llenar nuestra estructura de datos con los valores leídos
+        string mat_str(material_name);
+        materials.push_back({mat_str, material_info[mat_str].second, material_info[mat_str].first,
+                             (double)transmissionRatio, (double)attenuationCoeff,
+                             transmittedEvents, totalEvents});
+
+        file->Close();
+        cout << "  -> Datos de " << mat_str << " cargados desde " << file_name << endl;
+    }
+
+    // --- Hasta aquí modifiqué :D --- Atte: sopa
     cout << "\nRESULTADOS COMPARATIVOS:" << endl;
     cout << "Espesor: 5.0 cm | Energía: 662 keV (Cs-137)" << endl;
     cout << "--------------------------------------------" << endl;

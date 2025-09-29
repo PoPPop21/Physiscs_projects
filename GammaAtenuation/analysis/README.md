@@ -5,29 +5,45 @@ Scripts de análisis ROOT optimizados para simulación de atenuación gamma mult
 ## 📋 **FLUJO DE TRABAJO COMPLETO**
 
 ### **1. PREPARACIÓN (solo una vez)**
+
+Se debe crear la carpeta build para compilar, esta es ignorada por el gitignore. 
+
 ```bash
 cd /Physiscs_projects/GammaAtenuation/build
 make
 ```
 
-### **2. GENERAR CONFIGURACIONES**
+### **2. GENERAR CONFIGURACIONES** 🎀
+
+El archivo setup_multi.C, lo que hace es generar las gráficas, el archivo que se debe compilar posteriormente es multi_analysis.C, para visualizar las gráficas de coeficiente de atenuación lineal e histogramas.
+
+Esto se debe compilar en la carpeta de analysis. 
+
 ```bash
 root -q "../analysis/setup_multi.C"
 ```
 - **Función**: Genera archivos `.mac` para los 3 materiales
 - **Output**: `temp_water.mac`, `temp_muscle.mac`, `temp_bone.mac` en `../mac/`
 
-### **3. EJECUTAR SIMULACIONES**
+### **3. EJECUTAR SIMULACIONES** 🎀
+
+Esto se ejecuta en la carpeta de build, antes de compilar el multi_analysis.C, ya que crea los macros para poder visualizar las gráficas. 
+
 ```bash
 ./gammaAtt ../mac/temp_water.mac      # Simula agua
 ./gammaAtt ../mac/temp_muscle.mac     # Simula músculo  
 ./gammaAtt ../mac/temp_bone.mac       # Simula hueso
 ```
+Estos son los parámetros de la simulación especificados en setup_multi.C.
+
 - **Eventos por simulación**: 100,000
 - **Espesor**: 5.0 cm  
 - **Energía**: 662 keV (Cs-137)
 
 ### **4. EJECUTAR ANÁLISIS (generan PNGs automáticamente)**
+
+Se ejecuta en la carpeta de analysis. 👀
+
 ```bash
 root -q "../analysis/water_histogram.C"      # → water_analysis.png
 root -q "../analysis/analyze_attenuation.C"  # → attenuation_analysis.png

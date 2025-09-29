@@ -20,10 +20,16 @@ void setup_multi()
         string description;
     };
 
+    // Defino los materiales a simular
     vector<MaterialConfig> materials = {
         {"water", "water", 1.0, "Agua (tejido blando)"},
         {"muscle", "muscle", 1.05, "Músculo esquelético"},
-        {"bone", "bone", 1.85, "Hueso compacto"}};
+        {"bone", "bone", 1.85, "Hueso compacto"},
+        // --- Agrego el concreto y el plomo ---
+        {"concrete", "concrete", 2.3, "Concreto"},
+        {"lead", "G4_Pb", 11.34, "Plomo"}
+    
+    };
 
     double thickness = 5.0; // cm - espesor estándar
     int events = 100000;    // eventos por simulación
