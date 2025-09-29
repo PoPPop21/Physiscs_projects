@@ -4,6 +4,9 @@ project(GammaAttenuation)
 # Generar compile_commands.json para VS Code
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Crear el directorio de resultados en la raíz del proyecto
+file(MAKE_DIRECTORY ${PROJECT_SOURCE_DIR}/results)
+
 # Encontrar Geant4
 find_package(Geant4 REQUIRED ui_all vis_all)
 
