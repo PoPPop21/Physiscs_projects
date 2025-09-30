@@ -1,5 +1,50 @@
 # Directorios de build
 build/
+Build/
+BUILD/
+
+# CMake files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+.cmake/
+
+# Compiled binaries
+GammaAttenuation
+*.exe
+*.o
+*.a
+*.so
+*.dylib
+
+# ROOT files
+*.root
+*.pcm
+*.d
+
+# Output files
+output.txt
+*.out
+*.log
+
+# Geant4 generated files
+G4*.dat
+*.wrl
+*.prim
+*.mac~
+
+# Images and media
+screenshot.png
+*.png
+*.jpg
+*.gif
+*.csv
+*.pdf
+
+# Results
+GammaAtenuation/results/results_summary.txt
 
 # Configuraciones de IDE
 .vscode/
@@ -15,4 +60,3 @@ Thumbs.db
 # Archivos temporales
 *.tmp
 *.temp
-GammaAtenuation/results/results_summary.txt
