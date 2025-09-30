@@ -42,10 +42,7 @@ root -q "../analysis/setup_multi.C"
 - **Output**: `temp_water.mac`, `temp_muscle.mac`, `temp_bone.mac`
 
 ### **3. EJECUTAR SIMULACIONES**
-```bash
-./gammaAtt ../mac/temp_water.mac      # Simula agua
-./gammaAtt ../mac/temp_muscle.mac     # Simula músculo  
-./gammaAtt ../mac/temp_bone.mac       # Simula hueso
+ro
 ```
 - **Eventos por simulación**: 100,000
 - **Espesor**: 5.0 cm

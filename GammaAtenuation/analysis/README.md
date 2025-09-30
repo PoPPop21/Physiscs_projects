@@ -161,9 +161,7 @@ Análisis detallado específico para el material agua.
 2. **Ejecutar simulaciones:**
    ```bash
    cd ../build
-   ./gammaAtt ../mac/temp_water.mac
-   ./gammaAtt ../mac/temp_muscle.mac
-   ./gammaAtt ../mac/temp_bone.mac
+   ./gammaAtt ../mac/temp_water.mac && ./gammaAtt ../mac/temp_muscle.mac && ./gammaAtt ../mac/temp_bone.mac && ./gammaAtt ../mac/temp_concrete.mac && ./gammaAtt ../mac/temp_lead.mac
    ```
 
 3. **Generar análisis comparativo:**
