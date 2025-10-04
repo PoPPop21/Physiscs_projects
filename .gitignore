@@ -11,6 +11,8 @@ Makefile
 *.cmake
 .cmake/
 
+#Macros de espesor para agua (se ignoran porque los va a generar el script run_thickness_study.sh)
+GammaAtenuation/mac/thickness_water_*.mac
 # Compiled binaries
 GammaAttenuation
 *.exe
