@@ -43,6 +43,7 @@ private:
   // Variables ROOT - solo datos esenciales
   TFile *rootFile;
   TTree *attenuationTree;
+  TH1F *attenuationHist;
 
   // Estructura para datos del Tree
   struct RunData

@@ -23,6 +23,7 @@ RunAction::RunAction(DetectorConstruction *det)
 #ifdef USE_ROOT
   rootFile = nullptr;
   attenuationTree = nullptr;
+  attenuationHist = nullptr;
   G4cout << "RunAction: ROOT support enabled (datos únicamente)" << G4endl;
 #else
   G4cout << "RunAction: ROOT support not available" << G4endl;
@@ -58,6 +59,9 @@ void RunAction::BeginOfRunAction(const G4Run *run)
 
   // Crear Tree simple para datos
   attenuationTree = new TTree("data", "Attenuation Data");
+
+  // Crear histograma para coeficientes de atenuación
+  attenuationHist = new TH1F("attenuationCoeff", "Coeficiente de Atenuacion;Coeficiente (cm^{-1});Frecuencia", 100, 0, 0.2);
 
   // Variables básicas
   runData.runID = run->GetRunID();
@@ -107,12 +111,16 @@ void RunAction::EndOfRunAction(const G4Run *run)
   // Llenar Tree
   attenuationTree->Fill();
 
+  // Llenar histograma
+  attenuationHist->Fill(attenuationCoeff);
+
   // Guardar archivo ROOT
   rootFile->cd();
   attenuationTree->Write();
+  attenuationHist->Write();
   rootFile->Close();
-  rootFile->Close(); // Cerramos el archivo aquí
-  delete rootFile;   // Liberamos la memoria
+  rootFile->Close();  // Cerramos el archivo aquí
+  delete rootFile;    // Liberamos la memoria
   rootFile = nullptr; // Evitamos que el destructor intente borrarlo de nuevo
 
   G4cout << "ROOT: Datos guardados" << G4endl;
