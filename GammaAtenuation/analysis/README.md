@@ -52,79 +52,91 @@ root -q "../analysis/multi_analysis.C"       # → 2 gráficas comparativas
 
 ---
 
-## 📊 **Descripción de Scripts**
+## Descripción de Scripts
 
 ### `setup_multi.C`
 **Generador de configuraciones automatizadas**
-- ✅ Crea archivos `.mac` para agua, músculo, hueso
-- ✅ Configura parámetros: espesor, eventos, energía de fuente
-- ✅ **Se ejecuta PRIMERO** para preparar simulaciones
+- Crea archivos `.mac` para agua, músculo, hueso
+- Configura parámetros: espesor, eventos, energía de fuente
+- **Se ejecuta PRIMERO** para preparar simulaciones
 
 ### `analyze_attenuation.C`
 **Análisis completo individual**
-- ✅ Lee datos de `../results/data_run0.root`
-- ✅ Genera análisis de 4 paneles con validación Beer-Lambert
-- ✅ **Output**: `attenuation_analysis.png` + `attenuation_analysis.pdf`
+- Lee datos de `../results/data_run0.root`
+- Genera análisis de 4 paneles con validación Beer-Lambert
+- **Output**: `attenuation_analysis.png` + `attenuation_analysis.pdf`
 
 ### `multi_analysis.C` 
 **Análisis comparativo de 3 materiales**
-- ✅ Usa datos hardcodeados de simulaciones previas
-- ✅ Genera gráficas de coeficientes μ y transmisión vs densidad
-- ✅ **Output**: `coeficientes_atenuacion.png` + `transmision_vs_densidad.png`
-- ✅ DataFrame summary en terminal
+- Usa datos hardcodeados de simulaciones previas
+- Genera gráficas de coeficientes μ y transmisión vs densidad
+- **Output**: `coeficientes_atenuacion.png` + `transmision_vs_densidad.png`
+- DataFrame summary en terminal
 
 ### `water_histogram.C`
 **Análisis detallado específico del agua**
-- ✅ Histogramas de eventos transmitidos/atenuados
-- ✅ Validación experimental vs Beer-Lambert teórica
-- ✅ Panel de 4 gráficas con estadísticas completas
-- ✅ **Output**: `water_analysis.png`
+- Histogramas de eventos transmitidos/atenuados
+- Validación experimental vs Beer-Lambert teórica
+- Panel de 4 gráficas con estadísticas completas
+- **Output**: `water_analysis.png`
+
+### `thickness_study.C`
+**Análisis de variación de espesor - Ley de Beer-Lambert**
+- Procesa datos de múltiples espesores (0.5 - 15.0 cm)
+- Validación de ley Beer-Lambert: I = I₀e^(-μx)
+- Análisis logarítmico ln(I/I₀) vs espesor
+- Ajuste lineal con estadísticas χ²/ndf y R²
+- **Output**: `thickness_study.png`, `thickness_study.pdf`, `thickness_study_results.csv`
 
 ---
 
-## 📈 **Resultados Generados**
+## Resultados Generados
 
-### **Datos** (en `../results/`):
+### Datos (en `../results/`):
 - `data_run0.root` - Tree con datos de simulación
 - `results_summary.txt` - Resumen estadístico 
 - `attenuation_data.csv` - Datos tabulados
 - `event_data.csv` - Datos evento por evento
 
-### **Gráficas PNG** (en `../results/`):
+### Gráficas PNG (en `../results/`):
 - `water_analysis.png` - Análisis histográfico agua (4 paneles)
 - `attenuation_analysis.png` - Análisis individual completo (4 paneles)  
 - `coeficientes_atenuacion.png` - Barras comparativas μ por material
 - `transmision_vs_densidad.png` - Correlación transmisión-densidad
+- `thickness_study.png` - Estudio variación espesor (4 paneles)
+- `thickness_study.pdf` - Versión para presentaciones
 
 ---
 
-## ⚙️ **Detalles Técnicos**
+## Detalles Técnicos
 
-### **Materiales Simulados:**
+### Materiales Simulados:
 | Material | G4_Name | Densidad | μ típico | Transmisión típica |
-|----------|---------|----------|----------|--------------------|
+|----------|---------|----------|----------|--------------------|  
 | Agua     | G4_WATER| 1.0 g/cm³| 0.0339  | 84.4%             |
 | Músculo  | muscle  | 1.05 g/cm³| 0.0351 | 83.9%             |
 | Hueso    | bone    | 1.85 g/cm³| 0.0590 | 74.4%             |
 
-### **Parámetros de Simulación:**
+### Parámetros de Simulación:
 - **Fuente**: Cs-137 (662 keV)
 - **Geometría**: Detector plano
 - **Estadística**: 100,000 eventos por material
 - **Física**: Procesos electromagnéticos estándar
 
-### **Validaciones Incluidas:**
-- ✅ Ley Beer-Lambert: I = I₀e^(-μx)
-- ✅ Correlación densidad-atenuación
-- ✅ Rangos físicos realistas para 662 keV
-- ✅ Estadística robusta (>100k eventos)
+### Validaciones Incluidas:
+- Ley Beer-Lambert: I = I₀e^(-μx)
+- Correlación densidad-atenuación
+- Rangos físicos realistas para 662 keV
+- Estadística robusta (>100k eventos)---
 
----
-
-## 🚫 **Archivos Eliminados**
+## Archivos Eliminados
 - `quick.C` - Eliminado por ser redundante con `analyze_attenuation.C`
 
-**Nota**: Todos los scripts se ejecutan desde `build/` y guardan automáticamente en `../results/`
+## Scripts de Automatización
+- `../scripts/thickness_study_auto.sh` - Script unificado para estudio completo de variación de espesor
+- Genera automáticamente macros, ejecuta simulaciones y produce análisis
+
+**Nota**: Los scripts de análisis individual se ejecutan desde `build/` y guardan automáticamente en `../results/`. El script automatizado se ejecuta desde la carpeta principal del proyecto.
 
 ## Archivos incluidos:
 
