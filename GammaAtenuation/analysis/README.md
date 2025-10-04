@@ -123,15 +123,6 @@ root -q "../analysis/multi_analysis.C"       # → 2 gráficas comparativas
 - **Estadística**: 100,000 eventos por material
 - **Física**: Procesos electromagnéticos estándar
 
-### Validaciones Incluidas:
-- Ley Beer-Lambert: I = I₀e^(-μx)
-- Correlación densidad-atenuación
-- Rangos físicos realistas para 662 keV
-- Estadística robusta (>100k eventos)---
-
-## Archivos Eliminados
-- `quick.C` - Eliminado por ser redundante con `analyze_attenuation.C`
-
 ## Scripts de Automatización
 - `../scripts/thickness_study_auto.sh` - Script unificado para estudio completo de variación de espesor
 - Genera automáticamente macros, ejecuta simulaciones y produce análisis
