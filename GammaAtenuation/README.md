@@ -1,154 +1,92 @@
 # Gamma Attenuation Simulation
 
-Simulación de atenuación de rayos gamma usando GEANT4 con análisis comparativo multi-material y estudios de variación de espesor.
+Este proyecto simula la atenuación de rayos gamma usando GEANT4 para estudiar la interacción de radiación gamma con diferentes materiales y espesores.
 
-## Descripción del Proyecto
+## Requisitos
 
-Este proyecto simula la atenuación de rayos gamma de 662 keV (Cs-137) en diferentes materiales biológicos usando GEANT4 v11.3.2 y ROOT v6.36.04.
+- GEANT4 v11.3.2 o superior
+- ROOT v6.36.04 o superior
+- CMake v3.16 o superior
+- Python 3.12 con matplotlib, numpy, pandas
 
-### Materiales Analizados:
-- **Agua** (tejido blando) - Densidad: 1.0 g/cm³
-- **Músculo** esquelético - Densidad: 1.05 g/cm³  
-- **Hueso** compacto - Densidad: 1.85 g/cm³
+## Compilación
 
-## Instalación y Compilación
-
-### Requisitos:
-- GEANT4 v11.3.2+
-- ROOT v6.36.04+
-- CMake 3.16+
-- C++ Compiler con soporte C++17
-
-### Compilación:
 ```bash
-cd build/
+mkdir build
+cd build
 cmake ..
 make
 ```
-
-## Flujos de Trabajo Disponibles
-
-### FLUJO 1: Análisis Multi-Material (Principal)
-
-#### 1. PREPARACIÓN (solo una vez)
-```bash
-cd /home/isabel/Physiscs_projects/GammaAtenuation/build
-make
-```
-
-#### 2. GENERAR CONFIGURACIONES
-```bash
-root -q "../analysis/setup_multi.C"
-```
-- **Función**: Genera archivos `.mac` para los 3 materiales
-- **Output**: `temp_water.mac`, `temp_muscle.mac`, `temp_bone.mac`
-
-#### 3. EJECUTAR SIMULACIONES
-```bash
-./gammaAtt ../mac/temp_water.mac      # Simula agua
-./gammaAtt ../mac/temp_muscle.mac     # Simula músculo  
-./gammaAtt ../mac/temp_bone.mac       # Simula hueso
-```
-- **Eventos por simulación**: 100,000
-- **Espesor**: 5.0 cm
-- **Energía**: 662 keV (Cs-137)
-
-#### 4. EJECUTAR ANÁLISIS
-```bash
-root -q "../analysis/water_histogram.C"      # → water_analysis.png
-root -q "../analysis/analyze_attenuation.C"  # → attenuation_analysis.png
-root -q "../analysis/multi_analysis.C"       # → 2 gráficas comparativas
-```
-
-### FLUJO 2: Estudio de Variación de Espesor (Automático)
-
-#### Ejecución con un solo comando:
-```bash
-cd /home/isabel/Physiscs_projects/GammaAtenuation
-bash scripts/thickness_study_auto.sh
-```
-
-**Qué hace automáticamente:**
-- Genera 8 simulaciones con espesores: 0.5, 1.0, 2.0, 3.0, 5.0, 7.5, 10.0, 15.0 cm
-- Crea macros automáticamente si no existen
-- Ejecuta todas las simulaciones (800,000 eventos totales)
-- Genera análisis de la Ley de Beer-Lambert
-- Produce gráficas PNG/PDF y datos CSV
-- Validación estadística completa
-
-**Resultados generados:**
-- `results/thickness_study.png` - Análisis completo (4 paneles)
-- `results/thickness_study.pdf` - Para presentaciones
-- `results/thickness_study_results.csv` - Datos tabulados
 
 ## Estructura del Proyecto
 
 ```
 GammaAtenuation/
-├── analysis/          # Scripts de análisis ROOT
-│   ├── setup_multi.C           # Generador de configuraciones
-│   ├── analyze_attenuation.C   # Análisis individual completo
-│   ├── multi_analysis.C        # Análisis comparativo 3 materiales
-│   ├── water_histogram.C       # Análisis detallado agua
-│   ├── thickness_study.C       # Análisis variación de espesor
-│   └── README.md              # Documentación de análisis
-├── scripts/           # Scripts de automatización
-│   └── thickness_study_auto.sh # Estudio automático de espesor
-├── build/             # Compilación y ejecutables
-├── include/           # Headers de GEANT4
-├── src/              # Código fuente GEANT4
-├── mac/              # Archivos de configuración GEANT4
-├── results/          # Resultados y gráficas
-└── README.md         # Este archivo
+├── src/                          # Código fuente GEANT4
+├── include/                      # Headers GEANT4
+├── mac/                          # Archivos macro para simulaciones
+├── analysis/                     # Scripts de análisis
+│   ├── multi_thickness_analysis.C   # Análisis ley Beer-Lambert
+│   ├── multi_material_analysis.C    # Comparación de materiales
+│   ├── multi_energy_analysis.C      # Análisis multi-energía
+│   ├── plot_multi_thickness.py      # Gráficas espesor vs atenuación
+│   ├── plot_multi_material.py       # Gráficas comparación materiales
+│   └── plot_multi_energy.py         # Gráficas energía vs atenuación
+├── scripts/                      # Scripts de automatización
+│   ├── run_multi_thickness.sh       # Ejecuta análisis de espesores
+│   ├── run_multi_material.sh        # Ejecuta análisis de materiales
+│   ├── run_multi_energy.sh          # Ejecuta análisis multi-energía
+│   └── run_complete_analysis.sh     # Ejecuta análisis completo
+├── results/                      # Resultados de simulaciones
+├── build/                        # Directorio de compilación
+└── GA/                          # Entorno virtual Python
 ```
 
-## Resultados Generados
+## Scripts de Análisis
 
-### Archivos de Datos:
-- `data_run0.root` - Archivo ROOT con tree de datos
-- `results_summary.txt` - Resumen estadístico
-- `attenuation_data.csv` - Datos tabulados
-- `event_data.csv` - Datos evento por evento
+### run_multi_thickness.sh
+Ejecuta simulaciones con diferentes espesores de agua (0.5-15.0 cm) para verificar la ley de Beer-Lambert.
 
-### Gráficas PNG:
-- `water_analysis.png` - Análisis histográfico detallado del agua
-- `attenuation_analysis.png` - Análisis completo con 4 paneles
-- `coeficientes_atenuacion.png` - Comparación de coeficientes μ
-- `transmision_vs_densidad.png` - Correlación transmisión-densidad
-- `thickness_study.png` - Estudio de variación de espesor (4 paneles)
-- `thickness_study.pdf` - Versión para presentaciones
+### run_multi_material.sh  
+Compara atenuación entre agua, músculo esquelético y hueso compacto a espesor fijo de 5 cm.
 
-## Resultados Físicos Típicos
+### run_multi_energy.sh
+Analiza atenuación con diferentes energías de rayos gamma para estudiar dependencia energética.
 
-| Material | Densidad (g/cm³) | Transmisión (%) | μ (cm⁻¹) |
-|----------|------------------|-----------------|-----------|
-| Agua     | 1.0             | 84.4%           | 0.0339   |
-| Músculo  | 1.05            | 83.9%           | 0.0351   |
-| Hueso    | 1.85            | 74.4%           | 0.0590   |
+### run_complete_analysis.sh
+Ejecuta los tres análisis anteriores secuencialmente.
 
-### Validación Física:
-- Coeficientes en rangos realistas para 662 keV  
-- Seguimiento de ley Beer-Lambert: I = I₀e^(-μx)  
-- Correlación correcta densidad-atenuación  
-- Estadística robusta con 100,000 eventos  
+## Uso
 
-### Validación de Beer-Lambert (Estudio de Espesor):
-- Análisis logarítmico ln(I/I₀) vs espesor  
-- Ajuste lineal con estadísticas χ²/ndf y R²  
-- Comparación con valores de literatura  
-- Cálculo de espesores de semirreducción  
+1. **Compilar el proyecto:**
+```bash
+mkdir build && cd build && cmake .. && make
+```
 
-## Documentación Adicional
+2. **Configurar entorno Python:**
+```bash
+python3 -m venv GA
+source GA/bin/activate
+pip install matplotlib numpy pandas
+```
 
-- Ver `analysis/README.md` para detalles de cada script
-- Los archivos `.mac` definen configuraciones de GEANT4
-- Todos los outputs se guardan automáticamente en `results/`
-- Los archivos `thickness_water_*.mac` se generan automáticamente y están en `.gitignore`
+3. **Ejecutar análisis específico:**
+```bash
+./scripts/run_multi_thickness.sh    # Análisis espesores
+./scripts/run_multi_material.sh     # Análisis materiales  
+./scripts/run_multi_energy.sh       # Análisis energías
+```
 
-## Desarrollo
+4. **Ejecutar análisis completo:**
+```bash
+./scripts/run_complete_analysis.sh
+```
 
-**Rama actual**: `isabel-root-integration`  
-**Autor**: Isabel  
-**Última actualización**: Octubre 2025  
+## Resultados
 
-Para contribuir, mantener la estructura de directorios y ejecutar pruebas antes de commit.
+Los resultados se generan en `results/` con subdirectorios por tipo de análisis:
+- `multi_thickness/` - Datos y gráficas ley Beer-Lambert
+- `multi_material/` - Comparación de materiales
+- `multi_energy/` - Dependencia energética
+
+Cada análisis genera archivos CSV con datos numéricos y visualizaciones en PNG/PDF/SVG.

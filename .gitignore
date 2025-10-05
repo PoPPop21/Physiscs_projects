@@ -11,8 +11,8 @@ Makefile
 *.cmake
 .cmake/
 
-#Macros de espesor para agua (se ignoran porque los va a generar el script run_thickness_study.sh)
-GammaAtenuation/mac/thickness_water_*.mac
+#Macros (se ignoran porque se van a generar con los scripts .sh)
+GammaAtenuation/mac/*.mac
 # Compiled binaries
 GammaAttenuation
 *.exe
@@ -37,16 +37,17 @@ G4*.dat
 *.prim
 *.mac~
 
-# Images and media
+# Images and media (allow PNG in results)
 screenshot.png
-*.png
 *.jpg
 *.gif
 *.csv
 *.pdf
 
-# Results
-GammaAtenuation/results/results_summary.txt
+# Results directory - ignore everything except PNG files
+results/
+!results/*.png
+!results/**/*.png
 
 # Configuraciones de IDE
 .vscode/
@@ -62,3 +63,9 @@ Thumbs.db
 # Archivos temporales
 *.tmp
 *.temp
+
+# Entorno virtual Python
+GA/
+venv/
+env/
+.env/
