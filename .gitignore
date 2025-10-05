@@ -21,6 +21,11 @@ GammaAttenuation
 *.so
 *.dylib
 
+# ROOT compiled analysis executables
+GammaAtenuation/analysis/multi_energy_analysis
+GammaAtenuation/analysis/multi_material_analysis
+GammaAtenuation/analysis/multi_thickness_analysis
+
 # ROOT files
 *.root
 *.pcm
@@ -44,6 +49,7 @@ screenshot.png
 *.csv
 *.pdf
 *.txt
+*.svg
 
 # Results directory - ignore everything except PNG files
 !results/*.png
@@ -69,3 +75,4 @@ GA/
 venv/
 env/
 .env/
+
