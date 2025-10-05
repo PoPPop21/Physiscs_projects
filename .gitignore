@@ -43,9 +43,9 @@ screenshot.png
 *.gif
 *.csv
 *.pdf
+*.txt
 
 # Results directory - ignore everything except PNG files
-results/
 !results/*.png
 !results/**/*.png
 
