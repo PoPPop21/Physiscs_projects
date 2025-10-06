@@ -1,32 +1,52 @@
 #!/bin/bash
 
-echo "=== Multi-Energy Analysis ==="
-echo "Análisis de coeficientes de atenuación másicos vs energía"
+# Script para ejecutar análisis multi-energía para agua
+# Genera datos de comparación NIST vs GEANT4 y visualizaciones
 
-# Crear directorio de resultados si no existe
-mkdir -p results/multi_energy
+echo "=== Análisis Multi-Energía: Agua ==="
+echo "Ejecutando análisis de coeficientes de atenuación..."
 
-# Paso 1: Ejecutar análisis ROOT
-echo "Paso 1: Ejecutando análisis ROOT..."
-cd /home/isabel/Physiscs_projects/GammaAtenuation
-
-root -l -b -q "analysis/multi_energy_analysis.C"
-
-if [ $? -eq 0 ]; then
-    echo "✓ Análisis ROOT completado"
-else
-    echo "✗ Error en análisis ROOT"
+# Verificar que estamos en el directorio correcto
+if [ ! -f "analysis/multi_energy_analysis.C" ]; then
+    echo "Error: No se encuentra el archivo de análisis"
+    echo "Ejecute desde el directorio raíz del proyecto GammaAtenuation"
     exit 1
 fi
 
-echo "=========================================="
-echo "  ANÁLISIS MULTI-ENERGÍA COMPLETADO"
-echo "=========================================="
+# Crear directorio de resultados
+mkdir -p results/multi_energy
+
+# Compilar y ejecutar el análisis C++
+echo "Compilando análisis de agua..."
+g++ -o analysis/multi_energy_analysis analysis/multi_energy_analysis.C
+if [ $? -ne 0 ]; then
+    echo "Error en compilación"
+    exit 1
+fi
+
+echo "Ejecutando análisis de datos..."
+./analysis/multi_energy_analysis
+
+# Verificar que se generó el archivo CSV
+if [ ! -f "results/multi_energy/energy_spectrum_comparison.csv" ]; then
+    echo "Error: No se generó el archivo de datos"
+    exit 1
+fi
+
+# Activar entorno Python y ejecutar visualización
+echo "Activando entorno Python..."
+source GA/bin/activate
+
+echo "Generando visualizaciones..."
+python3 analysis/plot_multi_energy.py
+
 echo ""
-echo "Datos generados en:"
-echo "  /home/isabel/Physiscs_projects/GammaAtenuation/results/multi_energy/"
-echo ""
-echo "Para generar las gráficas, ejecuta:"
-echo "  source GA/bin/activate"
-echo "  python analysis/plot_multi_energy.py"
-echo ""
+echo "Análisis multi-energía para agua completado!"
+echo "Resultados en: results/multi_energy/"
+echo "Archivos generados:"
+echo "   - energy_spectrum_comparison.csv"
+echo "   - energy_spectrum_analysis.png"
+echo "   - nist_style_comparison.png"
+
+# Limpiar archivo ejecutable
+rm -f analysis/multi_energy_analysis

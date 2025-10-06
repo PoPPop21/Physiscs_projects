@@ -43,7 +43,7 @@ G4*.dat
 *.mac~
 
 # Images and media (allow PNG in results)
-screenshot.png
+*.png
 *.jpg
 *.gif
 *.csv
@@ -52,8 +52,8 @@ screenshot.png
 *.svg
 
 # Results directory - ignore everything except PNG files
-!results/*.png
-!results/**/*.png
+#!results/*.png
+#!results/**/*.png
 
 # Configuraciones de IDE
 .vscode/
@@ -76,3 +76,4 @@ venv/
 env/
 .env/
 
+GammaAtenuation/analysis/multi_thickness_bone_analysis_simple
